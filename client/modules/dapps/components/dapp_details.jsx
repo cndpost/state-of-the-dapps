@@ -1,5 +1,5 @@
 import React from "react";
-class Details extends React.Component {
+class DappDetails extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -16,7 +16,7 @@ class Details extends React.Component {
           <div className="col s8">
             <div className=" bg-white">
               <div className="title">
-                <h2>About {dapp.name}</h2>
+                <h2>{dapp.name}</h2>
               </div>
               <p>
                 {dapp.details}
@@ -61,7 +61,7 @@ class Details extends React.Component {
   }
 }
 
-Details.defaultProps = {
+DappDetails.defaultProps = {
   dapp: {
     name: 'dapps',
     website: 'https://dapps.ethercasts.com/',
@@ -76,4 +76,4 @@ Details.defaultProps = {
 
 };
 
-export default Details;
+export default DappDetails;

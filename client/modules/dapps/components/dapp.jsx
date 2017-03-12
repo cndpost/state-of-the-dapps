@@ -26,59 +26,61 @@ class Dapp extends React.Component {
     let {dapp} = this.props;
     return (
       <div className='col ms12 m4 l3 xl2 xxl1'>
-        <div className={'card hoverable dapp-card ' + this.getStatusColor(dapp.status)}>
-          <div className='card-content'>
-            <div className='main-section center-align'>
-              <div className='card-title truncate'>
-                {link ? <a target='_blank' href={link}>{dapp.name}</a>
-                  : dapp.name}
+        <a href={`/dapp/${dapp._id}`}>
+          <div className={'card hoverable dapp-card ' + this.getStatusColor(dapp.status)}>
+            <div className='card-content'>
+              <div className='main-section center-align'>
+                <div className='card-title truncate'>
+                  {dapp.url ? <a target='_blank' href={dapp.url}>{dapp.name}</a>
+                    : dapp.name}
+                </div>
+                <div className='card-subtitle trunchate'>
+                  {dapp.contact}
+                </div>
+                <div className='card-description'>
+                  <p>{dapp.description}</p>
+                </div>
               </div>
-              <div className='card-subtitle trunchate'>
-                {dapp.contact}
-              </div>
-              <div className='card-description'>
-                <p>{dapp.description}</p>
-              </div>
-            </div>
-            <div className='section status-section'>
-              <p className='icon-row center-align'>
-                { dapp.url &&
-                <a target='_blank' href={dapp.url}>
-                  <i className='icon-link fa fa-fw fa-globe'></i>
-                </a>
-                }
-                { dapp.github &&
-                <a target='_blank' href={dapp.github}>
-                  {dapp.license}
-                  <i className='icon-clickaBleIconlink fa fa-fw fa-github'></i>
-                </a>
-                }
-                {dapp.reddit &&
-                <a target='_blank' href={dapp.reddit}>
-                  <i className='icon-link fa fa-fw fa-reddit'></i>
-                </a>
-                }
-                { dapp.contract_address_mainnet &&
-                <a target='_blank' href={'https://etherscan.io/address/' + dapp.contract_address_mainnet}>
-                  <i className='icon-link fa fa-fw fa-cogs'></i>
-                </a>
-                }
-                { dapp.contract_address_ropsten &&
-                <a target='_blank' href={'https://ropsten.io/address/' + dapp.contract_address_ropsten}>
-                  <i className='icon-link fa fa-fw fa-bug'></i>
-                </a>
+              <div className='section status-section'>
+                <p className='icon-row center-align'>
+                  { dapp.url &&
+                  <a target='_blank' href={dapp.url}>
+                    <i className='icon-link fa fa-fw fa-globe'></i>
+                  </a>
+                  }
+                  { dapp.github &&
+                  <a target='_blank' href={dapp.github}>
+                    {dapp.license}
+                    <i className='icon-clickaBleIconlink fa fa-fw fa-github'></i>
+                  </a>
+                  }
+                  {dapp.reddit &&
+                  <a target='_blank' href={dapp.reddit}>
+                    <i className='icon-link fa fa-fw fa-reddit'></i>
+                  </a>
+                  }
+                  { dapp.contract_address_mainnet &&
+                  <a target='_blank' href={'https://etherscan.io/address/' + dapp.contract_address_mainnet}>
+                    <i className='icon-link fa fa-fw fa-cogs'></i>
+                  </a>
+                  }
+                  { dapp.contract_address_ropsten &&
+                  <a target='_blank' href={'https://ropsten.io/address/' + dapp.contract_address_ropsten}>
+                    <i className='icon-link fa fa-fw fa-bug'></i>
+                  </a>
 
-                }
-              </p>
-              <p className='pull-right'>
-                {dapp.last_update}
-              </p>
-              <p className='status truncate'>
-                {dapp.status.substring(3)}
-              </p>
+                  }
+                </p>
+                <p className='pull-right'>
+                  {dapp.last_update}
+                </p>
+                <p className='status truncate'>
+                  {dapp.status.substring(3)}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     );
   }

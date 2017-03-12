@@ -7,10 +7,9 @@ export default function (injectDeps, {FlowRouter}) {
 
   FlowRouter.route('/dapp/:id', {
     name: 'dappDetailsPage',
-    action() {
-      console.log('details page route');
+    action(params) {
       mount(MainLayoutCtx, {
-        content: () => (<DappDetails/>)
+        content: () => (<DappDetails dappId={params.id}/>)
       });
     }
   });
