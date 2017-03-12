@@ -9,4 +9,10 @@ export default function () {
     const selector = {_id: new Mongo.ObjectID(dappId)};
     return Dapps.find(selector);
   });
+  Meteor.publish('dapps.featured', function () {
+    const selector = {featured: {$exist: true}};
+
+    return Dapps.find(selector);
+  });
+
 };
