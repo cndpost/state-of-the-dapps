@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 
 import codecs
-from datetime import datetime
 import gspread
 import json
-from oauth2client.client import GoogleCredentials
 import os
-from pymongo import MongoClient
 import re
 from dateutil import parser
+from oauth2client.client import GoogleCredentials
+from pymongo import MongoClient
 
 DAPPS_SHEET_KEY = '1VdRMFENPzjL2V-vZhcc_aa5-ysf243t5vXlxC2b054g'
 MONGODB_URL = os.getenv('MONGODB_URL', 'mongodb://127.0.0.1:3001/meteor')
+
 
 def sync_sheet(worksheet, db):
     list_of_lists = worksheet.get_all_values()
@@ -38,10 +38,11 @@ def sync_sheet(worksheet, db):
                 'last_update': last_update,
                 'contract_address_mainnet': contract_address_mainnet,
                 'contract_address_ropsten': contract_address_ropsten,
-                'icon': icon,
-                }}, upsert=True)
+                'icon': icon
+            }}, upsert=True)
 
         row_nr += 1
+
 
 def import_json(filename):
     data = []
@@ -50,8 +51,10 @@ def import_json(filename):
             data.append(json.loads(line))
     return data
 
+
 def import_queue(db):
     return list(db.queue.find())
+
 
 def update_sheet(worksheet, db, data):
     for row in data:
@@ -82,6 +85,7 @@ def update_sheet(worksheet, db, data):
             ]
             worksheet.append_row(output)
 
+
 def main():
     credentials = GoogleCredentials.get_application_default()
     credentials = credentials.create_scoped(['https://spreadsheets.google.com/feeds'])
@@ -97,6 +101,7 @@ def main():
     # data = import_queue(db)
     # update_sheet(worksheet, db, data)
     sync_sheet(worksheet, db)
+
 
 if __name__ == '__main__':
     print("starting sync")
