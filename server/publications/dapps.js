@@ -6,9 +6,7 @@ export default function () {
     return Dapps.find();
   });
   Meteor.publish('dapps.byId', function (dappId) {
-    console.log(dappId);
-    const selector = {_id: dappId};
-    console.log(Dapps.find({selector}).fetch());
+    const selector = {_id: new Mongo.ObjectID(dappId)};
     return Dapps.find(selector);
   });
 };

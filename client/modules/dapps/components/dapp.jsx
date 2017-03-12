@@ -1,33 +1,18 @@
 import React from "react";
+import {dappHelper} from "/client/helpers/dappHelpers";
 class Dapp extends React.Component {
 
   constructor(props) {
     super(props);
   }
 
-  getStatusColor(status) {
-    let statusColors = [
-      'light-grey', // 0. Unknown
-      'black white-text', // 1. Abandoned
-      'red darken-2 white-text', // 2. On Hold
-      'grey darken-2 white-text', // 3. Stealth Mode
-      'amber accent-1', // 4. Concept
-      'amber', // 5. Work In Progress
-      'green accent-1', // 6. Demo
-      'green accent-2', // 7. Working Prototype
-      'light-green accent-3' // 8. live
-    ];
-    return statusColors[parseInt(status[0], 10)];
-  }
 
   render() {
-    var statusColor = 10;
-    var link = 'url';
     let {dapp} = this.props;
     return (
       <div className='col ms12 m4 l3 xl2 xxl1'>
         <a href={`/dapp/${dapp._id}`}>
-          <div className={'card hoverable dapp-card ' + this.getStatusColor(dapp.status)}>
+          <div className={'card hoverable dapp-card ' + dappHelper.getStatusColor(dapp.status)}>
             <div className='card-content'>
               <div className='main-section center-align'>
                 <div className='card-title truncate'>

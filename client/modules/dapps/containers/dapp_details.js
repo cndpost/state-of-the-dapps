@@ -5,10 +5,8 @@ export const composer = ({context, dappId}, onData) => {
   const {Meteor, Collections} = context();
   const subscriptionReady = [Meteor.subscribe('dapps.byId', dappId).ready()];
   const dataReady = () => {
-    console.log(dappId);
-    const selector = {_id: dappId};
-    const dapp = Collections.Dapps.findOne(dappId);
-    console.log(dapp);
+    const selector = {_id: new Meteor.Collection.ObjectID(dappId)};
+    const dapp = Collections.Dapps.findOne(selector);
     onData(null, {dapp});
   };
   (subscriptionReady) ? dataReady() : onData();
