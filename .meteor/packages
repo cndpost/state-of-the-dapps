@@ -25,7 +25,7 @@ spacebars                     # Handlebars-like template language for Meteor
 check@1.2.4                   # Check whether a value matches a pattern
 email@1.1.18                  # Send email messages
 react@=0.1.12                 # React rendering framework
-materialize:materialize       # Materialize (official): A modern responsive front-end framework based on Material Design
+materialize:materialize@=0.98.0      # Materialize (official): A modern responsive front-end framework based on Material Design
 fortawesome:fontawesome       # Font Awesome (official): 500+ scalable vector icons, customizable via CSS, Retina friendly
 fastclick@1.0.13              # Faster touch events on mobile
 kadira:dochead                # DocHead is an isomorphic way to manipulate document.head for Meteor apps.
