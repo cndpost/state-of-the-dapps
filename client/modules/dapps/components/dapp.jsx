@@ -11,6 +11,7 @@ class Dapp extends React.Component {
     let {dapp} = this.props;
     return (
       <div className='col ms12 m4 l3 xl2 xxl1'>
+
         <a href={`/dapp/${dapp._id}`}>
           <div className={'card hoverable dapp-card ' + dappHelper.getStatusColor(dapp.status)}>
             <div className='card-content'>
