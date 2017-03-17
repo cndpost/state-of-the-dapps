@@ -1,5 +1,5 @@
-import React from "react";
-import {dappHelper} from "/client/helpers/dappHelpers";
+import React from 'react';
+import {dappHelper} from '/client/helpers/dappHelpers';
 class Dapp extends React.Component {
 
   constructor(props) {
