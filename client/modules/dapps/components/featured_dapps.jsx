@@ -16,7 +16,6 @@ class FeaturedDapps extends React.Component {
 
   render() {
     let {featuredDapps} = this.props;
-    console.log(featuredDapps);
     return (
       <div>
         {(_.isEmpty(featuredDapps)) ? null :
