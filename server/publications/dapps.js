@@ -10,7 +10,7 @@ export default function () {
     return Dapps.find(selector);
   });
   Meteor.publish('dapps.featured', function () {
-    const selector = {featured: {$exist: true}};
+    const selector = {featured: {$exists: true}};
 
     return Dapps.find(selector);
   });
