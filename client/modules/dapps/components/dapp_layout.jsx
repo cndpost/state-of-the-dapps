@@ -31,9 +31,6 @@ class DappLayout extends React.Component {
       <div className='row'>
 
         <SearchBox searchAction={this.searchAction.bind(this)}/>
-        <section className="bg-white">
-          <FeaturedDapps/>
-        </section>
 
         <FilterArea toggleSortType={this.toggleSortType.bind(this)}
                     toggleDirection={this.toggleDirection.bind(this)}
