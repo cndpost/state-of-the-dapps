@@ -16,11 +16,6 @@ class Dapp extends React.Component {
             <div className='card-content'>
               <div className='main-section center-align'>
                 <div className='card-title truncate'>
-                  {isFeatured ?
-                   <div>
-                    <i className="fa fa-star" aria-hidden="true"></i>
-                  </div>
-                    : null}
                   {dapp.url ? <a target='_blank'
                                  href={dapp.url}>{dapp.name}</a> : dapp.name}
                 </div>
