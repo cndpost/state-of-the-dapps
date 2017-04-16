@@ -1,10 +1,10 @@
-import React from "react";
-import {formatHelper} from "/client/helpers/format-helpers";
+import React from 'react';
+import { formatHelper } from '/client/helpers/format-helpers';
 class FilterArea extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sortType: 'status',
+      sortType: 'updated',
       sortTypes: ['updated', 'status'],
       sortDirection: 'desc',
     };
@@ -15,16 +15,16 @@ class FilterArea extends React.Component {
   }
 
   toggleSortType() {
-    this.setState({sortType: (this.state.sortType == 'status') ? 'updated' : 'status'});
+    this.setState({ sortType: (this.state.sortType == 'status') ? 'status' : 'updated' });
   }
 
   toggleDirection() {
-    this.setState({sortDirection: (this.state.sortDirection == 'asc') ? 'desc' : 'asc'});
+    this.setState({ sortDirection: (this.state.sortDirection == 'desc') ? 'desc' : 'asc' });
   }
 
   render() {
-    let {sortTypes}=this.state;
-    let {dappCount, toggleDirection, toggleSortType, sortType, sortDirection}= this.props;
+    let { sortTypes } = this.state;
+    let { dappCount, toggleDirection, toggleSortType, sortType, sortDirection } = this.props;
     return (
       <div>
         <div className='filter-area white-text'>

@@ -2,7 +2,7 @@ import React from "react";
 import FilterArea from "/client/modules/core/containers/filter_area";
 import DappList from "/client/modules/dapps/containers/dapp_list";
 import SearchBox from "/client/modules/core/containers/search_box";
-import FeaturedDapps from "/client/modules/dapps/containers/featured_dapps";
+
 class DappLayout extends React.Component {
   constructor(props) {
     super(props);
