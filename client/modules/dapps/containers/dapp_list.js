@@ -10,14 +10,13 @@ export const composer = ({ context, sortDirection, searchText, sortType }, onDat
 
     let sorter        = (sortDirection == 'desc') ? -1 : 1;
     let sortField     = (sortType == 'status') ? 'status' : 'last_update';
-    let featuredDapps = Collections.Dapps.find({ tags: { $in: ['featured'] } }).fetch();
-    console.log(featuredDapps);
-    const dapps = Collections.Dapps.find({
+    let featuredDapps = (searchText) ? [] : Collections.Dapps.find({ tags: { $in: ['featured'] } }).fetch();
+    const dapps       = Collections.Dapps.find({
       '$or': [
-        { 'name': { '$regex': searchText } },
-        { 'description': { '$regex': searchText } },
-        { 'tags': { '$regex': searchText } },
-        { 'contact': { '$regex': searchText } },
+        { 'name': { '$regex': searchText, '$options': 'i' } },
+        { 'description': { '$regex': searchText, '$options': 'i' } },
+        { 'tags': { '$regex': searchText, '$options': 'i' } },
+        { 'contact': { '$regex': searchText, '$options': 'i' } },
       ]
     }, { sort: { [sortField]: sorter } }).fetch();
     onData(null, { dapps, featuredDapps });
