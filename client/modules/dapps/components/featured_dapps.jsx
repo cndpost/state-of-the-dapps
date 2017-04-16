@@ -1,5 +1,5 @@
 import React from 'react';
-import FeaturedDappItem from '/client/modules/dapps/containers/featured_dapp_item';
+import Dapp from '../containers/dapp';
 
 class FeaturedDapps extends React.Component {
   constructor(props) {
@@ -15,19 +15,14 @@ class FeaturedDapps extends React.Component {
   }
 
   render() {
-    let {featuredDapps} = this.props;
+    let { featuredDapps } = this.props;
     return (
       <div>
-        {(_.isEmpty(featuredDapps)) ? null :
-          <h4>Featured Dapps</h4>
+        {
+          featuredDapps.map((dapp, index) => (
+            <Dapp key={index} index={index} dapp={dapp}/>
+          ))
         }
-        <ul className="collapsible" data-collapsible="accordion">
-          {
-            featuredDapps.map((dapp, index) => (
-              <FeaturedDappItem key={index} index={index} dapp={dapp}/>
-            ))
-          }
-        </ul>
       </div>
     );
   }

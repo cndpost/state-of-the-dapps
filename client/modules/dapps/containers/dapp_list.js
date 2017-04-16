@@ -3,12 +3,16 @@ import DappList from '../components/dapp_list.jsx';
 
 export const composer = ({ context, sortDirection, searchText, sortType }, onData) => {
   const { Meteor, Collections } = context();
-  const subscriptionReady       = [Meteor.subscribe('dapps.list').ready()]
+  const subscriptionReady       = [
+    Meteor.subscribe('dapps.list').ready()
+  ];
   const dataReady               = () => {
 
-    let sorter = (sortDirection == 'desc') ? -1 : 1;
-    let sortField = (sortType == 'status') ? 'status' : 'last_update';
-    const dapps   = Collections.Dapps.find({
+    let sorter        = (sortDirection == 'desc') ? -1 : 1;
+    let sortField     = (sortType == 'status') ? 'status' : 'last_update';
+    let featuredDapps = Collections.Dapps.find({ tags: { $in: ['featured'] } }).fetch();
+    console.log(featuredDapps);
+    const dapps = Collections.Dapps.find({
       '$or': [
         { 'name': { '$regex': searchText } },
         { 'description': { '$regex': searchText } },
@@ -16,7 +20,7 @@ export const composer = ({ context, sortDirection, searchText, sortType }, onDat
         { 'contact': { '$regex': searchText } },
       ]
     }, { sort: { [sortField]: sorter } }).fetch();
-    onData(null, { dapps });
+    onData(null, { dapps, featuredDapps });
   };
   (subscriptionReady) ? dataReady() : onData();
 };
