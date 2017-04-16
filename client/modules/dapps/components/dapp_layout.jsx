@@ -7,7 +7,7 @@ class DappLayout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sortType: 'status',
+      sortType: 'updated',
       sortTypes: ['updated', 'status'],
       sortDirection: 'asc',
       searchText: ''
