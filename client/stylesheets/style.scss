@@ -102,9 +102,9 @@ footer.white-text a, .filter-area a {
   height: 200px;
   min-height: 12rem;
   &.featured {
-    -webkit-box-shadow: inset 0px 0px 74px -1px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: inset 0px 0px 74px -1px rgba(0, 0, 0, 0.75);
-    box-shadow: inset 0px 0px 74px -1px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: inset 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
   }
   &:hover {
     box-shadow: none;
