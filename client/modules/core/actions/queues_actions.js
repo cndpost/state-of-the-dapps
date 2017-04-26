@@ -47,7 +47,7 @@ export default {
               'error'
             );
           } else {
-            $('#submitModal').closeModal();
+            $('#submitModal').modal('close');
             swal(
               'Thank you.',
               'Your submission will be reviewed.',
