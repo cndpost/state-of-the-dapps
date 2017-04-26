@@ -62,4 +62,4 @@ export default {
   clearErrors({LocalState}) {
     return LocalState.set('CREATE_QUEUE_ERROR', null);
   }
-}
+};
