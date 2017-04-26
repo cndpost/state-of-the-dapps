@@ -1,4 +1,5 @@
 import React from 'react';
+import {$} from 'meteor/jquery';
 
 class IconButton extends React.Component {
   constructor(props) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import Dapp from '../containers/dapp';
+import {$} from 'meteor/jquery';
 
 class FeaturedDapps extends React.Component {
   constructor(props) {

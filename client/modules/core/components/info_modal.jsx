@@ -1,8 +1,14 @@
-import React from "react";
+import React from 'react';
+import {$} from 'meteor/jquery';
 
 class InfoModal extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  clickSubmitDapp() {
+    $('#infoModal').modal('close');
+    $('#submitModal').modal('open');
   }
 
   render() {
