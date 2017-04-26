@@ -1,13 +1,26 @@
-import React from "react";
+import React from 'react';
 
 class IconButton extends React.Component {
   constructor(props) {
     super(props);
   }
 
+  componentDidMount() {
+    $(document).ready(function () {
+      $('.modal').modal();
+    });
+
+  }
+
+  componentDidUpdate() {
+    $(document).ready(function () {
+      $('.modal').modal();
+    });
+  }
+
   handleClick() {
     let {target} = this.props;
-    $('#' + target).openModal()
+    $('#' + target).modal('open');
   }
 
   render() {
