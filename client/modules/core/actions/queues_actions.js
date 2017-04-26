@@ -30,7 +30,7 @@ export default {
         errors.push('Site URL');
       }
       if (!queue.license) {
-        errors.push('Site URL');
+        errors.push('License');
       }
       if (!errors.length == 0) {
         swal(
