@@ -15,7 +15,9 @@ class InfoModal extends React.Component {
               <h3>A Curated Collection of Decentralized Apps</h3>
               <p>
                 List maintained by <a href='http://ethercasts.com/' target='_blank'>EtherCasts</a>, Interface by <a
-                href='http://hitchcott.com' target='_blank'>Chris Hitchcott</a>
+                href='http://hitchcott.com' target='_blank'>Chris Hitchcott</a>,
+                Developer <a href="https://github.com/evilboss" target='_blank'>Jr Reyes</a>
+
               </p>
             </div>
           </div>

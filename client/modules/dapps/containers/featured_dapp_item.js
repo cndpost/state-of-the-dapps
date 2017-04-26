@@ -1,14 +1,11 @@
 import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
-import FilterArea from '../components/filter_area.jsx';
+
+import FeaturedDappItem from '../components/featured_dapp_item.jsx';
+
 export const composer = ({context}, onData) => {
   const {Meteor, Collections} = context();
-  const subscriptionReady = [ Meteor.subscribe('dapps.list').ready() ];
-  const dataReady = () => {
-    const dappCount = Collections.Dapps.find().count();
-    onData(null, {dappCount});
-  };
 
-  (subscriptionReady) ? dataReady() : onData();
+  onData(null, {});
 };
 
 export const depsMapper = (context, actions) => ({
@@ -18,4 +15,4 @@ export const depsMapper = (context, actions) => ({
 export default composeAll(
   composeWithTracker(composer),
   useDeps(depsMapper)
-)(FilterArea);
+)(FeaturedDappItem);

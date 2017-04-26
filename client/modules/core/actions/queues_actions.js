@@ -30,7 +30,7 @@ export default {
         errors.push('Site URL');
       }
       if (!queue.license) {
-        errors.push('Site URL');
+        errors.push('License');
       }
       if (!errors.length == 0) {
         swal(
@@ -47,7 +47,7 @@ export default {
               'error'
             );
           } else {
-            $('#submitModal').closeModal();
+            $('#submitModal').modal('close');
             swal(
               'Thank you.',
               'Your submission will be reviewed.',
@@ -62,4 +62,4 @@ export default {
   clearErrors({LocalState}) {
     return LocalState.set('CREATE_QUEUE_ERROR', null);
   }
-}
+};

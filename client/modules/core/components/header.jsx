@@ -1,6 +1,6 @@
-import React from "react";
-import InfoModal from "/client/modules/core/containers/info_modal";
-import SubmitModal from "/client/modules/core/containers/submit_modal";
+import React from 'react';
+import InfoModal from '/client/modules/core/containers/info_modal';
+import SubmitModal from '/client/modules/core/containers/submit_modal';
 
 class Header extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class Header extends React.Component {
   }
 
   scrollToTop() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }
 
   render() {

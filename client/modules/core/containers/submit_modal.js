@@ -1,5 +1,5 @@
-import {useDeps, composeAll, composeWithTracker, compose} from "mantra-core";
-import SubmitModal from "../components/submit_modal.jsx";
+import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
+import SubmitModal from '../components/submit_modal.jsx';
 
 export const composer = ({context, clearErrors}, onData) => {
   const {LocalState} = context();
