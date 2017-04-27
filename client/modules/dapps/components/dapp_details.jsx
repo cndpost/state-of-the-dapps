@@ -122,7 +122,7 @@ class DappDetails extends React.Component {
 
                   </div>
                   <div className="card-image details-small">
-                    <span className="card-title">Dapp Name</span>
+                    <span className="card-title"></span>
                   </div>
                   <div className="card-content">
                     <p></p>
