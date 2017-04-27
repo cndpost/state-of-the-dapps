@@ -46,6 +46,11 @@ class Dapp extends React.Component {
                   <i className='icon-link fa fa-fw fa-reddit'></i>
                 </a>
                 }
+                {dapp.slack &&
+                <a target='_blank' href={dapp.slack}>
+                  <i className='icon-link fa fa-fw fa-slack'></i>
+                </a>
+                }
                 { dapp.contract_address_mainnet &&
                 <a target='_blank'
                    href={'https://etherscan.io/address/' + dapp.contract_address_mainnet}>

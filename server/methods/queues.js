@@ -16,6 +16,7 @@ export default function () {
         contact_email: ShortString,
         site: ShortString,
         reddit: ShortString,
+        slack: ShortString,
         github: ShortString,
         license: ShortString,
         tags: ShortString,
