@@ -67,8 +67,14 @@ class SubmitModal extends React.Component {
                 <label>GitHub URL</label>
               </div>
               <div className='input-field col s12 m6'>
+                <input name='slack' type='url' pattern="https?://.+" maxLength='64'/>
+                <label>Slack URL</label>
+              </div>
+            </div>
+            <div className='row slim-row'>
+              <div className='input-field col s12 m6'>
                 <input name='license' type='text' required maxLength='10'/>
-                <label>License *</label>
+                <label>Software License *</label>
               </div>
             </div>
             <div className='row slim-row'>
@@ -90,7 +96,7 @@ class SubmitModal extends React.Component {
             <div className='row'>
               <div className='input-field col s12 m6'>
                 <select className='browser-default validate' required name='status'>
-                  <option value='' defaultValue>Project Status</option>
+                  <option value='' defaultValue>Project Status *</option>
                   <option value='1. Abandoned'>Abandoned</option>
                   <option value='2. On Hold'>On Hold</option>
                   <option value='3. Stealth Mode'>Stealth Mode</option>

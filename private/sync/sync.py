@@ -22,7 +22,7 @@ def sync_sheet(worksheet, db):
         print(cell_list)
 
         if row_nr > 0:
-            name, description, url, github, reddit, contact, tags, license, platform, status, last_update, contract_address_mainnet, contract_address_ropsten, icon = cell_list
+            name, description, url, github, reddit, slack, contact, tags, license, platform, status, last_update, contract_address_mainnet, contract_address_ropsten, icon = cell_list
             tags = [tag.strip() for tag in tags.split(',')]
 
             attributes = {
@@ -31,6 +31,7 @@ def sync_sheet(worksheet, db):
                 'url': url,
                 'github': github,
                 'reddit': reddit,
+                'slack': slack,
                 'contact': contact,
                 'tags': tags,
                 'license': license,
@@ -77,6 +78,7 @@ def update_sheet(worksheet, db, data):
                 row['site'],
                 row['github'],
                 row['reddit'],
+                row.get('slack', ''),
                 row['contact'],
                 row['tags'],
                 row['license'],
