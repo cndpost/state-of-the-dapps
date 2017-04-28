@@ -360,7 +360,17 @@ footer.white-text a, .filter-area a {
   #details-page-sidebar {
     overflow: auto;
   }
-  .home-area{
+  .home-area {
     text-align: end;
+  }
+}
+
+#home-link {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+#details-page-overview-details {
+  .collection-item {
+    border-bottom: none;
   }
 }
