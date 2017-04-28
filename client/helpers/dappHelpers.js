@@ -15,6 +15,10 @@ const getStatusColor = (status) => {
   ];
   return statusColors[parseInt(status[0], 10)];
 };
-const dappHelper = {getStatusColor};
+const getStatusText = (status) => {
+  return status.replace(/\d[.]+/g, '');
+
+};
+const dappHelper = {getStatusColor, getStatusText};
 
 export {dappHelper};
