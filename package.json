@@ -21,7 +21,8 @@
     "react-komposer": "^1.3.0",
     "react-mounter": "^1.0.0",
     "react-simple-di": "^1.0.1",
-    "slug": "^0.9.1"
+    "slug": "^0.9.1",
+    "unslug": "^0.1.0"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.x.x",
