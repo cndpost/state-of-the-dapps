@@ -356,8 +356,11 @@ footer.white-text a, .filter-area a {
 }
 
 #dapp-details-content {
-  max-height: 77vh;
+  max-height: 85vh;
   #details-page-sidebar {
     overflow: auto;
+  }
+  .home-area{
+    text-align: end;
   }
 }
