@@ -11,7 +11,7 @@ class Dapp extends React.Component {
     let {dapp, isFeatured} = this.props;
     return (
       <div className={'col ms12 m4 l3 xl2 xxl1'}>
-        <a href={`/dapp/${dapp._id}`}>
+        <a href={`/dapp/${dappHelper.slugyfy(dapp.name)}`}>
           <div
             className={`card hoverable dapp-card ${dappHelper.getStatusColor(dapp.status)} ${(isFeatured) ? 'featured' : ''}`}>
             <div className='card-content'>
