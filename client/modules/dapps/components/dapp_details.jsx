@@ -10,7 +10,7 @@ class DappDetails extends React.Component {
   render() {
     const {dapp} = this.props;
     return (
-      <div id="details-page" className="section scrollbar dark">
+      <div id="details-page" className="section">
         {(dapp) ?
           <div id="dapp-details-content">
             <div id="details-page-content" className="row">
@@ -18,34 +18,28 @@ class DappDetails extends React.Component {
               <div className="col s8">
                 <div className="row">
                   <div className="col s12">
-                    <div id="dapp-details-name" className="card radius light-blue">
+                    <div id="dapp-details-name" className={`card radius ${dappHelper.getStatusColor(dapp.status)}` }>
                       <div className="card-details-title">
                         <div className="row">
                           <div className="col s4">
-                            <span className="white-text">Details</span>
+                            <span className="black-text">Details</span>
                           </div>
-                        </div>
-                      </div>
-                      <div id="dapp-details-name-text" className="card-content white-text">
-
-                        <h5>
-                          <a className="white-text" href={dapp.url} target="_blank">{dapp.name}</a>
-                        </h5>
-
-
-                        <p>{dapp.description}</p>
-                      </div>
-                    </div>
-                    <div id="dapp-details-status" className={`card radius ${dappHelper.getStatusColor(dapp.status)}` }>
-                      <div className="card-details-title">
-                        <div className="row">
+                          <div className="col s4"></div>
                           <div className="col s4">
-                            <span className="">Status</span>
+                            <span className="black-text">{dappHelper.getStatusText(dapp.status)}</span>
                           </div>
                         </div>
                       </div>
-                      <div id="dapp-details-status-text" className="card-content black-text center-align">
-                        <p>{dappHelper.getStatusText(dapp.status)}</p>
+                      <div id="dapp-details-name-text"
+                           className="card-content black-text">
+                        <div className="row">
+                          <h5>
+                            <a className="black-text" href={dapp.url}
+                               target="_blank">{dapp.name}
+                            </a>
+                          </h5>
+                          <p>{dapp.description}</p>
+                        </div>
                       </div>
                     </div>
                     <div id="details-page-overview-details" className="card radius">
@@ -64,7 +58,7 @@ class DappDetails extends React.Component {
                                 <i className="mdi-action-wallet-travel"></i>URL
                               </div>
                               <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.url}
-                                                                                                     target="_blank">{dapp.url}</a>
+                                                                                                      target="_blank">{dapp.url}</a>
                               </div>
                             </div>
                           </li>
@@ -72,7 +66,7 @@ class DappDetails extends React.Component {
                             <div className="row">
                               <div className="col s2 grey-text darken-1"><i className="mdi-social-poll"></i>Repo</div>
                               <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.github}
-                                                                                                     target="_blank">{dapp.github}</a>
+                                                                                                      target="_blank">{dapp.github}</a>
                               </div>
                             </div>
                           </li>
@@ -81,7 +75,7 @@ class DappDetails extends React.Component {
                               <div className="col s2 grey-text darken-1"><i className="mdi-social-domain"></i> Slack
                               </div>
                               <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.slack}
-                                                                                                     target="_blank">{dapp.slack}</a>
+                                                                                                      target="_blank">{dapp.slack}</a>
                               </div>
                             </div>
                           </li>
@@ -105,7 +99,7 @@ class DappDetails extends React.Component {
                               <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Reddit
                               </div>
                               <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.reddit}
-                                                                                                     target="_blank">{dapp.reddit}</a>
+                                                                                                      target="_blank">{dapp.reddit}</a>
                               </div>
                             </div>
                           </li>
