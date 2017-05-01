@@ -412,7 +412,7 @@ footer.white-text a, .filter-area a {
 }
 
 #related-dapps {
-  min-height: 122vh;
+  min-height: 107vh;
 }
 
 #details-page {
@@ -437,22 +437,23 @@ footer.white-text a, .filter-area a {
 .radius {
   border-radius: 3px;
 }
+
 @media only screen and (max-width: 690px) {
-  .row .col.ms12{
-    width:100%;
+  .row .col.ms12 {
+    width: 100%;
   }
 }
 
 /* custom xl2 rule */
 @media only screen and (min-width: 1440px) {
-  .row .col.xl2{
-    width:16.6666%;
+  .row .col.xl2 {
+    width: 16.6666%;
   }
 }
 
 /* custom xxl1 rule */
 @media only screen and (min-width: 2600px) {
-  .row .col.xxl1{
-    width:8.3333%;
+  .row .col.xxl1 {
+    width: 8.3333%;
   }
 }
