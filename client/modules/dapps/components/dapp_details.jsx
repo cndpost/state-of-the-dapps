@@ -53,7 +53,7 @@ class DappDetails extends React.Component {
                       <div className="card-content">
                         <ul id="overview-collection" className="collection z-depth-1">
                           <li className="collection-item">
-                            <div className="row">
+                            { dapp.url && <div className="row">
                               <div className="col s2 grey-text darken-1">
                                 <i className="mdi-action-wallet-travel"></i>URL
                               </div>
@@ -61,7 +61,9 @@ class DappDetails extends React.Component {
                                                                                                       target="_blank">{dapp.url}</a>
                               </div>
                             </div>
+                            }
                           </li>
+                          {dapp.github &&
                           <li className="collection-item">
                             <div className="row">
                               <div className="col s2 grey-text darken-1"><i className="mdi-social-poll"></i>Repo</div>
@@ -70,6 +72,8 @@ class DappDetails extends React.Component {
                               </div>
                             </div>
                           </li>
+                          }
+                          {dapp.slack &&
                           <li className="collection-item">
                             <div className="row">
                               <div className="col s2 grey-text darken-1"><i className="mdi-social-domain"></i> Slack
@@ -79,6 +83,8 @@ class DappDetails extends React.Component {
                               </div>
                             </div>
                           </li>
+                          }
+                          {dapp.license &&
                           <li className="collection-item">
                             <div className="row">
                               <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Licence
@@ -86,6 +92,8 @@ class DappDetails extends React.Component {
                               <div className="col s10 grey-text text-darken-4 left-align">{dapp.license}</div>
                             </div>
                           </li>
+                          }
+                          { dapp.last_update &&
                           <li className="collection-item">
                             <div className="row">
                               <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Last
@@ -94,6 +102,8 @@ class DappDetails extends React.Component {
                               <div className="col s10 grey-text text-darken-4 left-align">{dapp.last_update}</div>
                             </div>
                           </li>
+                          }
+                          { dapp.reddit &&
                           <li className="collection-item">
                             <div className="row">
                               <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Reddit
@@ -103,6 +113,8 @@ class DappDetails extends React.Component {
                               </div>
                             </div>
                           </li>
+                          }
+                          {dapp.platform &&
                           <li className="collection-item">
                             <div className="row">
                               <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Platform
@@ -110,6 +122,8 @@ class DappDetails extends React.Component {
                               <div className="col s10 grey-text text-darken-4 left-align">{dapp.platform}</div>
                             </div>
                           </li>
+                          }
+                          {dapp.contact &&
                           <li className="collection-item">
                             <div className="row">
                               <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Contact
@@ -117,6 +131,7 @@ class DappDetails extends React.Component {
                               <div className="col s10 grey-text text-darken-4 left-align">{dapp.contact}</div>
                             </div>
                           </li>
+                          }
                         </ul>
                       </div>
                     </div>
