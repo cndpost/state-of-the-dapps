@@ -412,6 +412,7 @@ footer.white-text a, .filter-area a {
 }
 
 #related-dapps {
+  min-height: 122vh;
 }
 
 #details-page {
@@ -423,14 +424,35 @@ footer.white-text a, .filter-area a {
   background-color: #f9f9f9;
 
 }
+
 ::-webkit-scrollbar {
   width: 6px;
   background-color: #f9f9f9;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: #000000;
 }
 
 .radius {
   border-radius: 3px;
+}
+@media only screen and (max-width: 690px) {
+  .row .col.ms12{
+    width:100%;
+  }
+}
+
+/* custom xl2 rule */
+@media only screen and (min-width: 1440px) {
+  .row .col.xl2{
+    width:16.6666%;
+  }
+}
+
+/* custom xxl1 rule */
+@media only screen and (min-width: 2600px) {
+  .row .col.xxl1{
+    width:8.3333%;
+  }
 }
