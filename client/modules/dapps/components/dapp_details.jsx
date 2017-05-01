@@ -1,5 +1,6 @@
 import React from 'react';
 import {dappHelper} from '/client/helpers/dappHelpers';
+import Dapp from '../containers/dapp';
 
 class DappDetails extends React.Component {
   constructor(props) {
@@ -7,22 +8,25 @@ class DappDetails extends React.Component {
   }
 
   render() {
-    const {dapp} = this.props;
+    const {dapp, relatedDapps} = this.props;
     return (
       <div id="details-page" className="section">
         {(dapp) ?
           <div id="dapp-details-content">
             <div id="details-page-content" className="row">
-              <div id="details-page-sidebar" className="col s12 m4">
-                <div className="card light-blue">
-                  <div className="card-details-title">
-                    <div className="row">
-                      <div className="col s4">
-                        <span className="white-text">Details</span>
+
+              <div className="col s12 m8">
+                <div id="" className="row">
+                  <div className="col s12">
+                    <div className="card light-blue">
+                      <div className="card-details-title">
+                        <div className="row">
+                          <div className="col s4">
+                            <span className="white-text">Details</span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div className="card-content white-text">
+                      <div className="card-content white-text">
 
                     <span className="card-title">
                       <h5>
@@ -30,27 +34,9 @@ class DappDetails extends React.Component {
                       </h5>
                     </span>
 
-                    <p>{dapp.description}</p>
-                  </div>
-                </div>
-
-                <div className={`card ${dappHelper.getStatusColor(dapp.status)}` }>
-                  <div className="card-details-title">
-                    <div className="row">
-                      <div className="col s4">
-                        <span className="">Status</span>
+                        <p>{dapp.description}</p>
                       </div>
                     </div>
-                  </div>
-                  <div className="card-content black-text center-align">
-                    <p className="flow-text">{dappHelper.getStatusText(dapp.status)}</p>
-                  </div>
-                </div>
-
-              </div>
-              <div className="col s12 m8">
-                <div id="" className="row">
-                  <div className="col s12">
                     <div id="" className="card">
                       <div className="card-details-title">
                         <div className="row">
@@ -97,7 +83,8 @@ class DappDetails extends React.Component {
                           </li>
                           <li className="collection-item">
                             <div className="row">
-                              <div className="col s5 grey-text darken-1"><i className="mdi-social-cake"></i> Last Updated
+                              <div className="col s5 grey-text darken-1"><i className="mdi-social-cake"></i> Last
+                                Updated
                               </div>
                               <div className="col s7 grey-text text-darken-4 right-align">{dapp.last_update}</div>
                             </div>
@@ -107,7 +94,8 @@ class DappDetails extends React.Component {
                               <div className="col s5 grey-text darken-1"><i className="mdi-social-cake"></i> Reddit
                               </div>
                               <div className="col s7 grey-text text-darken-4 right-align truncate"><a href={dapp.reddit}
-                                                                                             target="_blank">{dapp.reddit}</a></div>
+                                                                                                      target="_blank">{dapp.reddit}</a>
+                              </div>
                             </div>
                           </li>
                           <li className="collection-item">
@@ -128,6 +116,36 @@ class DappDetails extends React.Component {
                       </div>
                     </div>
 
+                  </div>
+                </div>
+              </div>
+              <div id="details-page-sidebar" className="col s12 m4">
+                <div className={`card ${dappHelper.getStatusColor(dapp.status)}` }>
+                  <div className="card-details-title">
+                    <div className="row">
+                      <div className="col s4">
+                        <span className="">Status</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card-content black-text center-align">
+                    <p className="flow-text">{dappHelper.getStatusText(dapp.status)}</p>
+                  </div>
+                </div>
+                <div className="card">
+                  <div className="card-details-title">
+                    <div className="row">
+                      <div className="col s4">
+                        <span className="">Related Dapps</span>
+                      </div>
+                      <div className="card-content black-text center-align">
+                        {
+                          relatedDapps.map((relatedDapp, index) => (
+                            <Dapp key={index} dapp={relatedDapp}/>
+                          ))
+                        }
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

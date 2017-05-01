@@ -370,6 +370,10 @@ footer.white-text a, .filter-area a {
 }
 
 #details-page-overview-details {
+  .collection {
+    border: none;
+    box-shadow: 0;
+  }
   .collection-item {
     border-bottom: none;
   }

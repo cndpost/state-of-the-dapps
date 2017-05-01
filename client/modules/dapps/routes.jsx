@@ -9,7 +9,7 @@ export default function (injectDeps, {FlowRouter}) {
     name: 'dappDetailsPage',
     action(params) {
       mount(MainLayoutCtx, {
-        content: () => (<DappDetails dappName={dappHelper.unSlugyfy(params.slug)}/>)
+        content: () => (<DappDetails slug={params.slug}/>)
       });
     }
   });

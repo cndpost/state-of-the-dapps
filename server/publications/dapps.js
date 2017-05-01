@@ -14,8 +14,16 @@ export default function () {
     const selector = {name: dappName};
     return Dapps.find(selector);
   });
+  Meteor.publish('dapps.bySlug', function (slug) {
+    const selector = {slug};
+    return Dapps.find(selector);
+  });
   Meteor.publish('dapps.featured', function () {
     const selector = {tags: {$in: 'featured'}};
+    return Dapps.find(selector);
+  });
+  Meteor.publish('dapps.related', function (tags) {
+    const selector = {tags: {$in: tags}};
     return Dapps.find(selector);
   });
 

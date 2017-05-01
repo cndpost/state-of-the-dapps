@@ -1,13 +1,19 @@
 import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
 import DappDetails from '../components/dapp_details.jsx';
 
-export const composer = ({context, dappName}, onData) => {
+export const composer = ({context, slug}, onData) => {
   const {Meteor, Collections} = context();
-  const subscriptionReady = [ Meteor.subscribe('dapps.name', dappName).ready() ];
+  const subscriptionReady = [ Meteor.subscribe('dapps.bySlug', slug).ready() ];
   const dataReady = () => {
-    const selector = {name: dappName};
+    const selector = {slug};
     const dapp = Collections.Dapps.findOne(selector);
-    onData(null, {dapp});
+    let relatedDappsReady = (dapp) ? [ Meteor.subscribe('dapp.related', dapp.tags).ready() ] : false;
+    let relatedDapps = (relatedDappsReady) ? Collections.Dapps.find({
+      _id: {$ne: dapp._id},
+      tags: {$in: dapp.tags}
+    }).fetch() : [];
+    console.log(relatedDapps);
+    onData(null, {dapp, relatedDapps});
   };
   (subscriptionReady) ? dataReady() : onData();
 
