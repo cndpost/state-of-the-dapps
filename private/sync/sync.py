@@ -8,6 +8,7 @@ from oauth2client.client import GoogleCredentials
 import os
 from pymongo import MongoClient
 import re
+from slugify import slugify
 import dateutil.parser
 
 DAPPS_SHEET_KEY = '1VdRMFENPzjL2V-vZhcc_aa5-ysf243t5vXlxC2b054g'
@@ -36,6 +37,7 @@ def sync_sheet(worksheet, db):
                 'tags': tags,
                 'license': license,
                 'platform': platform,
+                'slug': slugify(name),
                 'status': status,
                 'last_update': last_update,
                 'contract_address_mainnet': contract_address_mainnet,
@@ -111,6 +113,7 @@ def main():
     client = MongoClient(MONGODB_URL)
     db = client.get_default_database()
     db.dapps.ensure_index('name')
+    db.dapps.ensure_index('slug')
 
     if args.import_queue:
         print "import queue"

@@ -1,6 +1,8 @@
 /**
  * Created by evilboss on 3/12/17.
  */
+import slug from 'slug';
+import unslug from 'unslug';
 const getStatusColor = (status) => {
   let statusColors = [
     'light-grey', // 0. Unknown
@@ -15,6 +17,15 @@ const getStatusColor = (status) => {
   ];
   return statusColors[parseInt(status[0], 10)];
 };
-const dappHelper = {getStatusColor};
+const getStatusText = (status) => {
+  return status.replace(/\d[.]+/g, '');
+};
+const slugyfy = (slugText) => {
+  return slug(slugText);
+};
+const unSlugyfy = (slugText) => {
+  return unslug(slugText);
+};
+const dappHelper = {getStatusColor, getStatusText, slugyfy, unSlugyfy};
 
 export {dappHelper};

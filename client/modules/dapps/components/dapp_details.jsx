@@ -1,5 +1,6 @@
 import React from 'react';
 import {dappHelper} from '/client/helpers/dappHelpers';
+import DappsRelated from '/client/modules/dapps/containers/dapps_related';
 
 class DappDetails extends React.Component {
   constructor(props) {
@@ -9,149 +10,153 @@ class DappDetails extends React.Component {
   render() {
     const {dapp} = this.props;
     return (
-      <div id="details" className="container">
-        <a href="/">
-          <i className="fa fa-home" aria-hidden="true"></i>
-        </a>
+      <div id="details-page" className="section">
         {(dapp) ?
-          <div className="row bg-white">
-            <div className="card">
-              <div className={`card-header ${(dapp.status) ? dappHelper.getStatusColor(dapp.status) : 'bg-white'}`}>
-                <div className="title">
-                  <h2>{dapp.name}</h2>
-                </div>
-              </div>
-              <div className="card-content">
-                <div className="bg-white">
-                  <div className=''>
-                    <p className='icon-row center-align'>
-                      { dapp.url &&
-                      <a target='_blank' href={dapp.url}>
-                        <i className='icon-link fa fa-fw fa-globe'></i>
-                      </a>
-                      }
-                      { dapp.github &&
-                      <a target='_blank' href={dapp.github}>
-                        {dapp.license}
-                        <i className='icon-clickaBleIconlink fa fa-fw fa-github'></i>
-                      </a>
-                      }
-                      {dapp.reddit &&
-                      <a target='_blank' href={dapp.reddit}>
-                        <i className='icon-link fa fa-fw fa-reddit'></i>
-                      </a>
-                      }
-                      {dapp.slack &&
-                      <a target='_blank' href={dapp.slack}>
-                        <i className='icon-link fa fa-fw fa-slack'></i>
-                      </a>
-                      }
-                      { dapp.contract_address_mainnet &&
-                      <a target='_blank' href={'https://etherscan.io/address/' + dapp.contract_address_mainnet}>
-                        <i className='icon-link fa fa-fw fa-cogs'></i>
-                      </a>
-                      }
-                      { dapp.contract_address_ropsten &&
-                      <a target='_blank' href={'https://ropsten.io/address/' + dapp.contract_address_ropsten}>
-                        <i className='icon-link fa fa-fw fa-bug'></i>
-                      </a>
+          <div id="dapp-details-content">
+            <div id="details-page-content" className="row">
 
-                      }
-                    </p>
-                    <p className='pull-right'>
-                      {dapp.last_update}
-                    </p>
+              <div className="col s8">
+                <div className="row">
+                  <div className="col s12">
+                    <div id="dapp-details-name" className={`card radius ${dappHelper.getStatusColor(dapp.status)}` }>
+                      <div className="card-details-title">
+                        <div className="row">
+                          <div className="col s4">
+                            <span className="black-text">Details</span>
+                          </div>
+                          <div className="col s4"></div>
+                          <div className="col s4">
+                            <span className="black-text">{dappHelper.getStatusText(dapp.status)}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="dapp-details-name-text"
+                           className="card-content black-text">
+                        <div className="row">
+                          <h5>
+                            <a className="black-text" href={dapp.url}
+                               target="_blank">{dapp.name}
+                            </a>
+                          </h5>
+                          <p>{dapp.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="details-page-overview-details" className="card radius">
+                      <div className="card-details-title">
+                        <div className="row">
+                          <div className="col s4">
+                            <span className="">Overview</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="card-content">
+                        <ul id="overview-collection" className="collection z-depth-1">
+                          <li className="collection-item">
+                            { dapp.url && <div className="row">
+                              <div className="col s2 grey-text darken-1">
+                                <i className="mdi-action-wallet-travel"></i>URL
+                              </div>
+                              <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.url}
+                                                                                                      target="_blank">{dapp.url}</a>
+                              </div>
+                            </div>
+                            }
+                          </li>
+                          {dapp.github &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-poll"></i>Repo</div>
+                              <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.github}
+                                                                                                      target="_blank">{dapp.github}</a>
+                              </div>
+                            </div>
+                          </li>
+                          }
+                          {dapp.slack &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-domain"></i> Slack
+                              </div>
+                              <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.slack}
+                                                                                                      target="_blank">{dapp.slack}</a>
+                              </div>
+                            </div>
+                          </li>
+                          }
+                          {dapp.license &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Licence
+                              </div>
+                              <div className="col s10 grey-text text-darken-4 left-align">{dapp.license}</div>
+                            </div>
+                          </li>
+                          }
+                          { dapp.last_update &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Last
+                                Updated
+                              </div>
+                              <div className="col s10 grey-text text-darken-4 left-align">{dapp.last_update}</div>
+                            </div>
+                          </li>
+                          }
+                          { dapp.reddit &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Reddit
+                              </div>
+                              <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.reddit}
+                                                                                                      target="_blank">{dapp.reddit}</a>
+                              </div>
+                            </div>
+                          </li>
+                          }
+                          {dapp.platform &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Platform
+                              </div>
+                              <div className="col s10 grey-text text-darken-4 left-align">{dapp.platform}</div>
+                            </div>
+                          </li>
+                          }
+                          {dapp.contact &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Contact
+                              </div>
+                              <div className="col s10 grey-text text-darken-4 left-align">{dapp.contact}</div>
+                            </div>
+                          </li>
+                          }
+                        </ul>
+                      </div>
+                    </div>
 
                   </div>
-                  <p>
-                    {dapp.description}
-                  </p>
-
-                </div>
-                <div className={`${'bg-white'}`}>
-                  <div className={`title`}>
-                    <h5>Details</h5>
-                    <table>
-                      <tbody>
-                      <tr>
-                        <td>
-                          <b>Name</b>
-                        </td>
-                        <td>{dapp.name}</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <b>Website</b>
-                        </td>
-                        <td>
-                          <a target="_blank" href={dapp.url}>
-                            {dapp.url}
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Licence</td>
-                        <td>{dapp.license}</td>
-                      </tr>
-                      <tr>
-                        <td>Updated</td>
-                        <td>{dapp.last_update}</td>
-                      </tr>
-                      <tr>
-                        <td>Status</td>
-                        <td>{(dapp.status) ? dapp.status.substring(3) : ''}</td>
-                      </tr>
-                      <tr>
-                        <td>Platform</td>
-                        <td>{dapp.platform}</td>
-                      </tr>
-                      <tr>
-                        <td>GitHub</td>
-                        <td>{dapp.github}</td>
-                      </tr>
-                      <tr>
-                        <td>Reddit</td>
-                        <td>{dapp.reddit}</td>
-                      </tr>
-                      <tr>
-                        <td>Slack</td>
-                        <td>{dapp.slack}</td>
-                      </tr>
-
-                      <tr>
-                        <td>Tags</td>
-                        <td>
-                          {
-                            (dapp.tags) ? (_.isEmpty(dapp.tags)) ? null :
-                                dapp.tags.map((tag, index) => (
-                                  <div className="chip" key={index}>{tag}</div>
-                                )) : null
-                          }</td>
-                      </tr>
-                      </tbody>
-
-                    </table>
-                  </div>
                 </div>
               </div>
-              <div className="card-footer">
-                <ul>
-                  {(dapp.redit) ?
-                    <li>
-                      <a href={dapp.redit} target="_blank"><i className="fa fa-redit"></i></a>
-                    </li> : null
-                  }
-                  {(dapp.url) ?
-                    <li>
-                      <a href={dapp.url} target="_blank"><i className="fa fa-globe"></i></a>
-                    </li> : null}
-                  {(dapp.github) ? <li>
-                      <a href={dapp.github} target="_blank"><i className="fa fa-github"></i></a>
-                    </li> : null}
-                </ul>
+              <div id="details-page-sidebar" className="col s4">
+                <div id="related-dapps" className="card radius">
+                  <div className="card-details-title">
+                    <div className="row">
+                      <div className="col s12">
+                        <span className="">Related Dapps</span>
+                      </div>
+                      <div className="">
+                        <DappsRelated tags={dapp.tags} slug={dapp.slug}/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div> : null}
+          </div> : null
+        }
+
       </div>
     );
   }
