@@ -7,13 +7,7 @@ export const composer = ({context, slug}, onData) => {
   const dataReady = () => {
     const selector = {slug};
     const dapp = Collections.Dapps.findOne(selector);
-    let relatedDappsReady = (dapp) ? [ Meteor.subscribe('dapp.related', dapp.tags).ready() ] : false;
-    let relatedDapps = (relatedDappsReady) ? Collections.Dapps.find({
-      _id: {$ne: dapp._id},
-      tags: {$in: dapp.tags}
-    }).fetch() : [];
-    console.log(relatedDapps);
-    onData(null, {dapp, relatedDapps});
+    onData(null, {dapp});
   };
   (subscriptionReady) ? dataReady() : onData();
 

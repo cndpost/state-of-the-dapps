@@ -23,7 +23,7 @@ export default function () {
     return Dapps.find(selector);
   });
   Meteor.publish('dapps.related', function (tags) {
-    const selector = {tags: {$in: tags}};
+    const selector = (tags) ? {tags: {$in: tags}} : {_id: 'cant-be-found'};
     return Dapps.find(selector);
   });
 

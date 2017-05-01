@@ -1,6 +1,6 @@
 import React from 'react';
 import {dappHelper} from '/client/helpers/dappHelpers';
-import Dapp from '../containers/dapp';
+import DappsRelated from '/client/modules/dapps/containers/dapps_related';
 
 class DappDetails extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class DappDetails extends React.Component {
   }
 
   render() {
-    const {dapp, relatedDapps} = this.props;
+    const {dapp} = this.props;
     return (
       <div id="details-page" className="section">
         {(dapp) ?
@@ -37,7 +37,7 @@ class DappDetails extends React.Component {
                         <p>{dapp.description}</p>
                       </div>
                     </div>
-                    <div id="" className="card">
+                    <div id="details-page-overview-details" className="card">
                       <div className="card-details-title">
                         <div className="row">
                           <div className="col s4">
@@ -46,7 +46,7 @@ class DappDetails extends React.Component {
                         </div>
                       </div>
                       <div className="card-content">
-                        <ul id="details-page-overview-details" className="collection z-depth-1">
+                        <ul id="overview-collection" className="collection z-depth-1">
                           <li className="collection-item">
                             <div className="row">
                               <div className="col s5 grey-text darken-1">
@@ -132,18 +132,14 @@ class DappDetails extends React.Component {
                     <p className="flow-text">{dappHelper.getStatusText(dapp.status)}</p>
                   </div>
                 </div>
-                <div className="card">
+                <div id="related-dapps" className="card">
                   <div className="card-details-title">
                     <div className="row">
-                      <div className="col s4">
+                      <div className="col s12">
                         <span className="">Related Dapps</span>
                       </div>
-                      <div className="card-content black-text center-align">
-                        {
-                          relatedDapps.map((relatedDapp, index) => (
-                            <Dapp key={index} dapp={relatedDapp}/>
-                          ))
-                        }
+                      <div className="">
+                        <DappsRelated tags={dapp.tags}/>
                       </div>
                     </div>
                   </div>

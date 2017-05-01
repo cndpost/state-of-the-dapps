@@ -8,9 +8,9 @@ class Dapp extends React.Component {
   }
 
   render() {
-    let {dapp, isFeatured} = this.props;
+    let {dapp, isFeatured, customClass} = this.props;
     return (
-      <div className={'col ms12 m4 l3 xl2 xxl1'}>
+      <div className={(customClass) ? customClass : 'col ms12 m4 l3 xl2 xxl1'}>
         <a href={`/dapp/${dapp.slug}`}>
           <div
             className={`card hoverable dapp-card ${dappHelper.getStatusColor(dapp.status)} ${(isFeatured) ? 'featured' : ''}`}>
