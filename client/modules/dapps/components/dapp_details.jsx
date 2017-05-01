@@ -10,7 +10,7 @@ class DappDetails extends React.Component {
   render() {
     const {dapp} = this.props;
     return (
-      <div id="details-page" className="section">
+      <div id="details-page" className="section scrollbar dark">
         {(dapp) ?
           <div id="dapp-details-content">
             <div id="details-page-content" className="row">

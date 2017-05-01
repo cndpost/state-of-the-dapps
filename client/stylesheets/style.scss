@@ -414,9 +414,27 @@ footer.white-text a, .filter-area a {
 }
 
 #details-page {
-  max-height: 90vh;
+  max-height: 73.5vh;
   overflow-x: auto;
 
+}
+
+.scrollbar {
+  float: left;
+  overflow-y: scroll;
+  margin-bottom: 25px;
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f9f9f9;
+
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #f9f9f9;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #000000;
+  }
 }
 
 .radius {
