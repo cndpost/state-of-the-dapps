@@ -379,13 +379,32 @@ footer.white-text a, .filter-area a {
 }
 
 #overview-collection {
-  .collection {
-    border: none;
-    box-shadow: 0;
-  }
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
   .collection-item {
     border-bottom: none;
   }
+}
+
+#dapp-details-status {
+  max-height: 15vh;
+  #dapp-details-status-text {
+    padding-top: 0;
+  }
+}
+
+#dapp-details-name {
+  max-height: 15vh;
+  h5 {
+    font-weight: bold;
+  }
+  #dapp-details-name-text {
+    padding-top: 0;
+  }
+
 }
 
 #related-dapps {
