@@ -17,8 +17,7 @@ class Dapp extends React.Component {
             <div className='card-content'>
               <div className='main-section center-align'>
                 <div className='card-title truncate'>
-                  {dapp.url ? <a target='_blank'
-                                 href={dapp.url}>{dapp.name}</a> : dapp.name}
+                  {dapp.name}
                 </div>
                 <div className='card-subtitle trunchate'>
                   {dapp.contact}

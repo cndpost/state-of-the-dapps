@@ -55,7 +55,7 @@ class DappDetails extends React.Component {
                           <li className="collection-item">
                             { dapp.url && <div className="row">
                               <div className="col s2 grey-text darken-1">
-                                <i className="mdi-action-wallet-travel"></i>URL
+                                <i className="mdi-action-wallet-travel"></i>Site
                               </div>
                               <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.url}
                                                                                                       target="_blank">{dapp.url}</a>
@@ -66,7 +66,7 @@ class DappDetails extends React.Component {
                           {dapp.github &&
                           <li className="collection-item">
                             <div className="row">
-                              <div className="col s2 grey-text darken-1"><i className="mdi-social-poll"></i>Repo</div>
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-poll"></i>Repository</div>
                               <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.github}
                                                                                                       target="_blank">{dapp.github}</a>
                               </div>
@@ -87,7 +87,7 @@ class DappDetails extends React.Component {
                           {dapp.license &&
                           <li className="collection-item">
                             <div className="row">
-                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Licence
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Software License
                               </div>
                               <div className="col s10 grey-text text-darken-4 left-align">{dapp.license}</div>
                             </div>
@@ -114,21 +114,38 @@ class DappDetails extends React.Component {
                             </div>
                           </li>
                           }
-                          {dapp.platform &&
-                          <li className="collection-item">
-                            <div className="row">
-                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Platform
-                              </div>
-                              <div className="col s10 grey-text text-darken-4 left-align">{dapp.platform}</div>
-                            </div>
-                          </li>
-                          }
                           {dapp.contact &&
                           <li className="collection-item">
                             <div className="row">
                               <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Contact
                               </div>
                               <div className="col s10 grey-text text-darken-4 left-align">{dapp.contact}</div>
+                            </div>
+                          </li>
+                          }
+                          {dapp.contract_address_mainnet &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Mainnet contract address
+                              </div>
+                              <div className="col s10 grey-text text-darken-4 left-align">
+                                <a target='_blank' href={'https://etherscan.io/address/' + dapp.contract_address_mainnet}>
+                                  {dapp.contract_address_mainnet}
+                                </a>
+                              </div>
+                            </div>
+                          </li>
+                          }
+                          {dapp.contract_address_ropsten &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Ropsten contract address
+                              </div>
+                              <div className="col s10 grey-text text-darken-4 left-align">
+                                <a target='_blank' href={'https://ropsten.io/address/' + dapp.contract_address_ropsten}>
+                                  {dapp.contract_address_mainnet}
+                                </a>
+                              </div>
                             </div>
                           </li>
                           }
