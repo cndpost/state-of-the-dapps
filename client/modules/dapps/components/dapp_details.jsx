@@ -15,7 +15,7 @@ class DappDetails extends React.Component {
           <div id="dapp-details-content">
             <div id="details-page-content" className="row">
 
-              <div className="col s12 m9">
+              <div className="col s10">
                 <div className="row">
                   <div className="col s12">
                     <div id="dapp-details-name" className="card light-blue">
@@ -118,7 +118,7 @@ class DappDetails extends React.Component {
                   </div>
                 </div>
               </div>
-              <div id="details-page-sidebar" className="col s12 m3">
+              <div id="details-page-sidebar" className="col s2">
                 <div id="dapp-details-status" className={`card ${dappHelper.getStatusColor(dapp.status)}` }>
                   <div className="card-details-title">
                     <div className="row">
