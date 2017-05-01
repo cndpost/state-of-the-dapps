@@ -8,12 +8,12 @@ class Dapp extends React.Component {
   }
 
   render() {
-    let {dapp, isFeatured, customClass} = this.props;
+    let {dapp, isFeatured, customClass, isRelated} = this.props;
     return (
       <div className={(customClass) ? customClass : 'col ms12 m4 l3 xl2 xxl1'}>
         <a href={`/dapp/${dapp.slug}`}>
           <div
-            className={`card hoverable dapp-card ${dappHelper.getStatusColor(dapp.status)} ${(isFeatured) ? 'featured' : ''}`}>
+            className={`card hoverable dapp-card ${dappHelper.getStatusColor(dapp.status)} ${(isFeatured) ? 'featured' : ''} ${(isRelated) ? 'related' : ''}`}>
             <div className='card-content'>
               <div className='main-section center-align'>
                 <div className='card-title truncate'>
@@ -36,7 +36,7 @@ class Dapp extends React.Component {
                   }
                   { dapp.github &&
                   <a target='_blank' href={dapp.github}>
-                    {dapp.license}
+                    {dapp.github}
                     <i
                       className='icon-clickaBleIconlink fa fa-fw fa-github'></i>
                   </a>

@@ -106,6 +106,10 @@ footer.white-text a, .filter-area a {
     -moz-box-shadow: inset 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
     box-shadow: inset 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
   }
+  &.related {
+    min-height: 20vh;
+    height: 20vh;
+  }
   &:hover {
     box-shadow: none;
     border: 1px solid rgba(0, 0, 0, .15);
@@ -386,6 +390,7 @@ footer.white-text a, .filter-area a {
 
   .collection-item {
     border-bottom: none;
+    text-align: left;
   }
 }
 
