@@ -36,7 +36,7 @@ class Dapp extends React.Component {
                   }
                   { dapp.github &&
                   <a target='_blank' href={dapp.github}>
-                    {dapp.licence}
+                    {dapp.license}
                     <i
                       className='icon-clickaBleIconlink fa fa-fw fa-github'></i>
                   </a>
