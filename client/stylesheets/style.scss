@@ -374,8 +374,6 @@ footer.white-text a, .filter-area a {
 }
 
 #details-page-overview-details {
-  max-height: 50vh;
-  overflow-x: auto;
 }
 
 #details-page-content {
@@ -413,7 +411,14 @@ footer.white-text a, .filter-area a {
 }
 
 #related-dapps {
-  max-height: 55vh;
-  min-height: 55vh;
+}
+
+#details-page {
+  max-height: 90vh;
   overflow-x: auto;
+
+}
+
+.radius {
+  border-radius: 3px;
 }

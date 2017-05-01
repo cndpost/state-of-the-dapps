@@ -18,7 +18,7 @@ class DappDetails extends React.Component {
               <div className="col s10">
                 <div className="row">
                   <div className="col s12">
-                    <div id="dapp-details-name" className="card light-blue">
+                    <div id="dapp-details-name" className="card radius light-blue">
                       <div className="card-details-title">
                         <div className="row">
                           <div className="col s4">
@@ -36,7 +36,7 @@ class DappDetails extends React.Component {
                         <p>{dapp.description}</p>
                       </div>
                     </div>
-                    <div id="details-page-overview-details" className="card">
+                    <div id="details-page-overview-details" className="card radius">
                       <div className="card-details-title">
                         <div className="row">
                           <div className="col s4">
@@ -119,7 +119,7 @@ class DappDetails extends React.Component {
                 </div>
               </div>
               <div id="details-page-sidebar" className="col s2">
-                <div id="dapp-details-status" className={`card ${dappHelper.getStatusColor(dapp.status)}` }>
+                <div id="dapp-details-status" className={`card radius ${dappHelper.getStatusColor(dapp.status)}` }>
                   <div className="card-details-title">
                     <div className="row">
                       <div className="col s4">
@@ -131,7 +131,7 @@ class DappDetails extends React.Component {
                     <p>{dappHelper.getStatusText(dapp.status)}</p>
                   </div>
                 </div>
-                <div id="related-dapps" className="card">
+                <div id="related-dapps" className="card radius">
                   <div className="card-details-title">
                     <div className="row">
                       <div className="col s12">
