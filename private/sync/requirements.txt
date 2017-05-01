@@ -2,3 +2,4 @@ gspread
 oauth2client
 pymongo
 python-dateutil
+python-slugify
