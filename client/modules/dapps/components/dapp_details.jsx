@@ -15,7 +15,7 @@ class DappDetails extends React.Component {
           <div id="dapp-details-content">
             <div id="details-page-content" className="row">
 
-              <div className="col s10">
+              <div className="col s8">
                 <div className="row">
                   <div className="col s12">
                     <div id="dapp-details-name" className="card radius light-blue">
@@ -34,6 +34,18 @@ class DappDetails extends React.Component {
 
 
                         <p>{dapp.description}</p>
+                      </div>
+                    </div>
+                    <div id="dapp-details-status" className={`card radius ${dappHelper.getStatusColor(dapp.status)}` }>
+                      <div className="card-details-title">
+                        <div className="row">
+                          <div className="col s4">
+                            <span className="">Status</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="dapp-details-status-text" className="card-content black-text center-align">
+                        <p>{dappHelper.getStatusText(dapp.status)}</p>
                       </div>
                     </div>
                     <div id="details-page-overview-details" className="card radius">
@@ -118,19 +130,7 @@ class DappDetails extends React.Component {
                   </div>
                 </div>
               </div>
-              <div id="details-page-sidebar" className="col s2">
-                <div id="dapp-details-status" className={`card radius ${dappHelper.getStatusColor(dapp.status)}` }>
-                  <div className="card-details-title">
-                    <div className="row">
-                      <div className="col s4">
-                        <span className="">Status</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="dapp-details-status-text" className="card-content black-text center-align">
-                    <p>{dappHelper.getStatusText(dapp.status)}</p>
-                  </div>
-                </div>
+              <div id="details-page-sidebar" className="col s4">
                 <div id="related-dapps" className="card radius">
                   <div className="card-details-title">
                     <div className="row">

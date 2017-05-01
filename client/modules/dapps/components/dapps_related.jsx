@@ -12,7 +12,7 @@ class DappsRelated extends React.Component {
       <div>
         {
           (dapps) ? dapps.map((dapp, index) => (
-            <Dapp className="col s12" key={index} dapp={dapp} customClass="col s12" isRelated="true"/>
+            <Dapp className="col s12" key={index} dapp={dapp} customClass="col s6" isRelated="true"/>
           )) :
             <div className='no-results center-align white-text flow-text section'>
               <p>No Related Dapps Yet</p>
