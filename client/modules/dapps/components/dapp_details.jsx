@@ -73,6 +73,26 @@ class DappDetails extends React.Component {
                             </div>
                           </li>
                           }
+                          {dapp.blog &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-poll"></i>Blog</div>
+                              <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.blog}
+                                                                                                      target="_blank">{dapp.blog}</a>
+                              </div>
+                            </div>
+                          </li>
+                          }
+                          {dapp.wiki &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-poll"></i>Wiki</div>
+                              <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.wiki}
+                                                                                                      target="_blank">{dapp.wiki}</a>
+                              </div>
+                            </div>
+                          </li>
+                          }
                           {dapp.slack &&
                           <li className="collection-item">
                             <div className="row">
@@ -84,22 +104,14 @@ class DappDetails extends React.Component {
                             </div>
                           </li>
                           }
-                          {dapp.license &&
+                          {dapp.gitter &&
                           <li className="collection-item">
                             <div className="row">
-                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Software License
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-domain"></i> Gitter
                               </div>
-                              <div className="col s10 grey-text text-darken-4 left-align">{dapp.license}</div>
-                            </div>
-                          </li>
-                          }
-                          { dapp.last_update &&
-                          <li className="collection-item">
-                            <div className="row">
-                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Last
-                                Updated
+                              <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.gitter}
+                                                                                                      target="_blank">{dapp.gitter}</a>
                               </div>
-                              <div className="col s10 grey-text text-darken-4 left-align">{dapp.last_update}</div>
                             </div>
                           </li>
                           }
@@ -114,12 +126,62 @@ class DappDetails extends React.Component {
                             </div>
                           </li>
                           }
+                          { dapp.twitter &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Twitter
+                              </div>
+                              <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.twitter}
+                                                                                                      target="_blank">{dapp.twitter}</a>
+                              </div>
+                            </div>
+                          </li>
+                          }
+                          { dapp.facebook &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Facebook
+                              </div>
+                              <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.facebook}
+                                                                                                      target="_blank">{dapp.facebook}</a>
+                              </div>
+                            </div>
+                          </li>
+                          }
                           {dapp.contact &&
                           <li className="collection-item">
                             <div className="row">
                               <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Contact
                               </div>
                               <div className="col s10 grey-text text-darken-4 left-align">{dapp.contact}</div>
+                            </div>
+                          </li>
+                          }
+                          {dapp.license &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Software License
+                              </div>
+                              <div className="col s10 grey-text text-darken-4 left-align">{dapp.license}</div>
+                            </div>
+                          </li>
+                          }
+                          { dapp.created &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Created
+                              </div>
+                              <div className="col s10 grey-text text-darken-4 left-align">{dapp.created}</div>
+                            </div>
+                          </li>
+                          }
+                          { dapp.last_update &&
+                          <li className="collection-item">
+                            <div className="row">
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Last
+                                Updated
+                              </div>
+                              <div className="col s10 grey-text text-darken-4 left-align">{dapp.last_update}</div>
                             </div>
                           </li>
                           }
