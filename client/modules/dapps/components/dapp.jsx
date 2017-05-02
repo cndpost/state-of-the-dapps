@@ -35,9 +35,17 @@ class Dapp extends React.Component {
                   }
                   { dapp.github &&
                   <a target='_blank' href={dapp.github}>
-                    {dapp.license}
-                    <i
-                      className='icon-clickaBleIconlink fa fa-fw fa-github'></i>
+                    <i className='icon-link fa fa-fw fa-github'></i>
+                  </a>
+                  }
+                  { dapp.blog &&
+                  <a target='_blank' href={dapp.blog}>
+                    <i className='icon-link fa fa-fw fa-book'></i>
+                  </a>
+                  }
+                  { dapp.wiki &&
+                  <a target='_blank' href={dapp.wiki}>
+                    <i className='icon-link fa fa-fw fa-wikipedia-w'></i>
                   </a>
                   }
                   {dapp.reddit &&
@@ -48,6 +56,21 @@ class Dapp extends React.Component {
                   {dapp.slack &&
                   <a target='_blank' href={dapp.slack}>
                     <i className='icon-link fa fa-fw fa-slack'></i>
+                  </a>
+                  }
+                  {dapp.gitter &&
+                  <a target='_blank' href={dapp.gitter}>
+                    <i className='icon-link fa fa-fw fa-comments'></i>
+                  </a>
+                  }
+                  {dapp.twitter &&
+                  <a target='_blank' href={dapp.twitter}>
+                    <i className='icon-link fa fa-fw fa-twitter'></i>
+                  </a>
+                  }
+                  {dapp.facebook &&
+                  <a target='_blank' href={dapp.facebook}>
+                    <i className='icon-link fa fa-fw fa-facebook'></i>
                   </a>
                   }
                   { dapp.contract_address_mainnet &&
