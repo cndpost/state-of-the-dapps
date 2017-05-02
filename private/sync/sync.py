@@ -23,7 +23,7 @@ def sync_sheet(worksheet, db):
         print(cell_list)
 
         if row_nr > 0:
-            name, description, url, github, reddit, slack, contact, tags, license, platform, status, last_update, contract_address_mainnet, contract_address_ropsten, icon = cell_list
+            name, description, url, github, reddit, slack, gitter, blog, wiki, twitter, facebook, contact, tags, license, platform, status, created, last_update, contract_address_mainnet, contract_address_ropsten, icon = cell_list
             tags = [tag.strip() for tag in tags.split(',')]
 
             attributes = {
@@ -33,12 +33,18 @@ def sync_sheet(worksheet, db):
                 'github': github,
                 'reddit': reddit,
                 'slack': slack,
+                'gitter': gitter,
+                'blog': blog,
+                'wiki': wiki,
+                'twitter': twitter,
+                'facebook': facebook,
                 'contact': contact,
                 'tags': tags,
                 'license': license,
                 'platform': platform,
                 'slug': slugify(name),
                 'status': status,
+                'created': created,
                 'last_update': last_update,
                 'contract_address_mainnet': contract_address_mainnet,
                 'contract_address_ropsten': contract_address_ropsten,
@@ -81,11 +87,17 @@ def update_sheet(worksheet, db, data):
                 row['github'],
                 row['reddit'],
                 row.get('slack', ''),
+                row.get('gitter', ''),
+                row.get('blog', ''),
+                row.get('wiki', ''),
+                row.get('twitter', ''),
+                row.get('facebook', ''),
                 row['contact'],
                 row['tags'],
                 row['license'],
                 'Ethereum',
                 row['status'],
+                timestamp,
                 timestamp,
                 row['contract_address_mainnet'],
                 row['contract_address_ropsten'],
