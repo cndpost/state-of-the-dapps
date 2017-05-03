@@ -7,6 +7,10 @@ class DappDetails extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     const {dapp} = this.props;
     return (
@@ -66,7 +70,8 @@ class DappDetails extends React.Component {
                           {dapp.github &&
                           <li className="collection-item">
                             <div className="row">
-                              <div className="col s2 grey-text darken-1"><i className="mdi-social-poll"></i>Repository</div>
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-poll"></i>Repository
+                              </div>
                               <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.github}
                                                                                                       target="_blank">{dapp.github}</a>
                               </div>
@@ -131,8 +136,9 @@ class DappDetails extends React.Component {
                             <div className="row">
                               <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Twitter
                               </div>
-                              <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.twitter}
-                                                                                                      target="_blank">{dapp.twitter}</a>
+                              <div className="col s10 grey-text text-darken-4 left-align truncate"><a
+                                href={dapp.twitter}
+                                target="_blank">{dapp.twitter}</a>
                               </div>
                             </div>
                           </li>
@@ -142,8 +148,9 @@ class DappDetails extends React.Component {
                             <div className="row">
                               <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Facebook
                               </div>
-                              <div className="col s10 grey-text text-darken-4 left-align truncate"><a href={dapp.facebook}
-                                                                                                      target="_blank">{dapp.facebook}</a>
+                              <div className="col s10 grey-text text-darken-4 left-align truncate"><a
+                                href={dapp.facebook}
+                                target="_blank">{dapp.facebook}</a>
                               </div>
                             </div>
                           </li>
@@ -160,7 +167,8 @@ class DappDetails extends React.Component {
                           {dapp.license &&
                           <li className="collection-item">
                             <div className="row">
-                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Software License
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Software
+                                License
                               </div>
                               <div className="col s10 grey-text text-darken-4 left-align">{dapp.license}</div>
                             </div>
@@ -188,10 +196,12 @@ class DappDetails extends React.Component {
                           {dapp.contract_address_mainnet &&
                           <li className="collection-item">
                             <div className="row">
-                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Mainnet contract address
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Mainnet
+                                contract address
                               </div>
                               <div className="col s10 grey-text text-darken-4 left-align">
-                                <a target='_blank' href={'https://etherscan.io/address/' + dapp.contract_address_mainnet}>
+                                <a target='_blank'
+                                   href={'https://etherscan.io/address/' + dapp.contract_address_mainnet}>
                                   {dapp.contract_address_mainnet}
                                 </a>
                               </div>
@@ -201,7 +211,8 @@ class DappDetails extends React.Component {
                           {dapp.contract_address_ropsten &&
                           <li className="collection-item">
                             <div className="row">
-                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Ropsten contract address
+                              <div className="col s2 grey-text darken-1"><i className="mdi-social-cake"></i> Ropsten
+                                contract address
                               </div>
                               <div className="col s10 grey-text text-darken-4 left-align">
                                 <a target='_blank' href={'https://ropsten.io/address/' + dapp.contract_address_ropsten}>
