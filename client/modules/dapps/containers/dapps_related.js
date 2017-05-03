@@ -11,7 +11,6 @@ export const composer = ({context, tags, slug}, onData) => {
     const options = {fields: {slug: 1, name: 1, description: 1, status: 1}};
 
     const dapps = Collections.Dapps.find(selector, options).fetch();
-    console.log(dapps);
     onData(null, {dapps});
   };
   (subscriptionReady) ? dataReady() : onData();
