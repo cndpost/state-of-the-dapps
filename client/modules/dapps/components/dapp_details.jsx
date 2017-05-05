@@ -60,7 +60,7 @@ class DappDetails extends React.Component {
                           <div className="col s4 grey-text darken-1">Site</div>
                           <div className="col s8 grey-text text-darken-4 left-align truncate">
                             <a href={dapp.url} target="_blank">
-                              <i className='icon-link fa fa-fw fa-globe'></i>
+                              <i className='icon-link fa fa-fw fa-globe'></i> { dapp.url }
                             </a>
                           </div>
                         </li>
@@ -71,7 +71,7 @@ class DappDetails extends React.Component {
                           <div className="col s4 grey-text darken-1">Repository</div>
                           <div className="col s8 grey-text text-darken-4 left-align truncate">
                             <a href={dapp.github} target="_blank">
-                              <i className='icon-link fa fa-fw fa-github'></i>
+                              <i className='icon-link fa fa-fw fa-github'></i> { dapp.github }
                             </a>
                           </div>
                         </li>
@@ -81,7 +81,7 @@ class DappDetails extends React.Component {
                           <div className="col s4 grey-text darken-1">Blog</div>
                           <div className="col s8 grey-text text-darken-4 left-align">
                             <a href={dapp.blog} target="_blank">
-                              <i className='icon-link fa fa-fw fa-book'></i>
+                              <i className='icon-link fa fa-fw fa-book'></i> { dapp.blog }
                             </a>
                           </div>
                         </li>
@@ -91,7 +91,7 @@ class DappDetails extends React.Component {
                           <div className="col s4 grey-text darken-1">Wiki</div>
                           <div className="col s8 grey-text text-darken-4 left-align">
                             <a href={dapp.wiki} target="_blank">
-                              <i className='icon-link fa fa-fw fa-wikipedia-w'></i>
+                              <i className='icon-link fa fa-fw fa-wikipedia-w'></i> { dapp.wiki }
                             </a>
                           </div>
                         </li>
@@ -103,7 +103,7 @@ class DappDetails extends React.Component {
                           </div>
                           <div className="col s8 grey-text text-darken-4 left-align">
                             <a href={dapp.slack} target="_blank">
-                              <i className='icon-link fa fa-fw fa-slack'></i>
+                              <i className='icon-link fa fa-fw fa-slack'></i> { dapp.slack }
                             </a>
                           </div>
                         </li>
@@ -112,7 +112,7 @@ class DappDetails extends React.Component {
                         <li className="collection-item">
                           <div className="col s4 grey-text darken-1">Gitter</div>
                           <div className="col s8 grey-text text-darken-4 left-align truncate">
-                            <i className='icon-link fa fa-fw fa-comments'></i>
+                            <i className='icon-link fa fa-fw fa-comments'></i> { dapp.gitter }
                           </div>
                         </li>
                         }
@@ -123,7 +123,7 @@ class DappDetails extends React.Component {
                           </div>
                           <div className="col s8 grey-text text-darken-4 left-align truncate">
                             <a href={dapp.reddit} target="_blank">
-                              <i className='icon-link fa fa-fw fa-reddit'></i>
+                              <i className='icon-link fa fa-fw fa-reddit'></i> { dapp.reddit }
                             </a>
                           </div>
                         </li>
@@ -133,7 +133,7 @@ class DappDetails extends React.Component {
                           <div className="col s4 grey-text darken-1">The Etherian</div>
                           <div className="col s8 grey-text text-darken-4 left-align">
                             <a href={dapp.the_etherian} target="_blank">
-                              <i className='icon-link fa fa-fw fa-newspaper-o'></i>
+                              <i className='icon-link fa fa-fw fa-newspaper-o'></i> { dapp.the_etherian }
                             </a>
                           </div>
                         </li>
@@ -143,7 +143,7 @@ class DappDetails extends React.Component {
                           <div className="col s4 grey-text darken-1">Twitter</div>
                           <div className="col s8 grey-text text-darke-4 left-align truncate">
                             <a href={dapp.twitter} target="_blank">
-                              <i className='icon-link fa fa-fw fa-twitter'></i>
+                              <i className='icon-link fa fa-fw fa-twitter'></i> { dapp.twitter }
                             </a>
                           </div>
                         </li>
@@ -153,7 +153,7 @@ class DappDetails extends React.Component {
                           <div className="col s4 grey-text darken-1">Facebook</div>
                           <div className="col s8 grey-text text-darken-4 left-align">
                             <a href={dapp.facebook} target="_blank">
-                              <i className='icon-link fa fa-fw fa-facebook'></i>
+                              <i className='icon-link fa fa-fw fa-facebook'></i> { dapp.facebook }
                             </a>
                           </div>
                         </li>
