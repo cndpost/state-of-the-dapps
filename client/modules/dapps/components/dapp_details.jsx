@@ -128,6 +128,16 @@ class DappDetails extends React.Component {
                           </div>
                         </li>
                         }
+                        {dapp.the_etherian &&
+                        <li className="collection-item">
+                          <div className="col s4 grey-text darken-1">The Etherian</div>
+                          <div className="col s8 grey-text text-darken-4 left-align">
+                            <a href={dapp.the_etherian} target="_blank">
+                              <i className='icon-link fa fa-fw fa-newspaper-o'></i>
+                            </a>
+                          </div>
+                        </li>
+                        }
                         { dapp.twitter &&
                         <li className="collection-item">
                           <div className="col s4 grey-text darken-1">Twitter</div>
