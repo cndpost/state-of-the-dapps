@@ -63,6 +63,11 @@ class Dapp extends React.Component {
                     <i className='icon-link fa fa-fw fa-comments'></i>
                   </a>
                   }
+                  {dapp.the_etherian &&
+                  <a target='_blank' href={dapp.the_etherian}>
+                    <i className='icon-link fa fa-fw fa-newspaper-o'></i>
+                  </a>
+                  }
                   {dapp.twitter &&
                   <a target='_blank' href={dapp.twitter}>
                     <i className='icon-link fa fa-fw fa-twitter'></i>
