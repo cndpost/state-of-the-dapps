@@ -16,8 +16,7 @@ const getTwitterHandle = (twitterLink) => {
   return (twitterLink.replace('https://www.twitter.com/', '@'));
 };
 const getRedditUrl = (redditLink) => {
-  return (redditLink.replace('http://reddit.com', ''));
-
+  return (redditLink.replace('https://www.reddit.com', ''));
 };
 
 const formatHelper = {
