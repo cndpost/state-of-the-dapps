@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class SubmitModal extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class SubmitModal extends React.Component {
     let $thisForm = $(this.refs.submissionForm);
     const getFormData = () => {
       let dataObj = {};
-      $thisForm.serializeArray().forEach((item, i) => {
+      $thisForm.serializeArray().forEach((item) => {
         dataObj[item.name] = item.value;
       });
       return dataObj;
@@ -69,6 +69,26 @@ class SubmitModal extends React.Component {
               <div className='input-field col s12 m6'>
                 <input name='slack' type='url' pattern="https?://.+" maxLength='64'/>
                 <label>Slack URL</label>
+              </div>
+            </div>
+            <div className="row slim-row">
+              <div className='input-field col s12 m6'>
+                <input name='facebook' type='url' pattern="https?://.+" maxLength='64'/>
+                <label>Facebook URL</label>
+              </div>
+              <div className='input-field col s12 m6'>
+                <input name='twitter' type='url' pattern="https?://.+" maxLength='64'/>
+                <label>Twitter URL</label>
+              </div>
+            </div>
+            <div className="row slim-row">
+              <div className='input-field col s12 m6'>
+                <input name='gitter' type='url' pattern="https?://.+" maxLength='64'/>
+                <label>Gitter URL</label>
+              </div>
+              <div className='input-field col s12 m6'>
+                <input name='the_etherian' type='url' pattern="https?://.+" maxLength='64'/>
+                <label>Etherian URL</label>
               </div>
             </div>
             <div className='row slim-row'>
