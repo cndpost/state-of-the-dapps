@@ -5,6 +5,13 @@ import {Mongo} from 'meteor/mongo';
 export default function () {
   Meteor.publish('dapps.list', function () {
     return Dapps.find();
+  }, {
+    url: '/api/dapps'
+  });
+  Meteor.publish('dapp.byTag', function (tag) {
+    return Dapps.find({tags: tag});
+  }, {
+    url: '/api/dapps-by-tag/:0'
   });
   Meteor.publish('dapps.byId', function (dappId) {
     const selector = {_id: new Mongo.ObjectID(dappId)};
