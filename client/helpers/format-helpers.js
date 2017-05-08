@@ -12,10 +12,19 @@ const getCountry = (timezone) => {
   let area = timezone.split('/');
   return area[1];
 };
+const getTwitterHandle = (twitterLink) => {
+  return (twitterLink.replace('https://www.twitter.com/', '@'));
+};
+const getRedditUrl = (redditLink) => {
+  return (redditLink.replace('http://reddit.com', ''));
+
+};
 
 const formatHelper = {
-  capitalize: capitalize,
-  capsAll: capsAll,
-  getCountry: getCountry
+  capitalize,
+  capsAll,
+  getCountry,
+  getTwitterHandle,
+  getRedditUrl
 };
-export {formatHelper}
+export {formatHelper};

@@ -1,5 +1,7 @@
 import React from 'react';
 import {dappHelper} from '/client/helpers/dappHelpers';
+import {formatHelper} from '/client/helpers/format-helpers';
+
 import DappsRelated from '/client/modules/dapps/containers/dapps_related';
 
 class DappDetails extends React.Component {
@@ -188,7 +190,7 @@ class DappDetails extends React.Component {
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
                           { dapp.reddit ?
                             <a href={dapp.reddit} target="_blank">
-                              <i className='icon-link fa fa-fw fa-reddit'></i> REDDIT
+                              <i className='icon-link fa fa-fw fa-reddit'></i> {formatHelper.getRedditUrl(dapp.reddit)}
                             </a> :
                             <span><i className='icon-link fa fa-fw fa-reddit'></i> No REDDIT</span>
                           }
@@ -210,7 +212,8 @@ class DappDetails extends React.Component {
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
                           { dapp.twitter ?
                             <a href={dapp.twitter} target="_blank">
-                              <i className='icon-link fa fa-fw fa-twitter'></i> Twitter
+                              <i
+                                className='icon-link fa fa-fw fa-twitter'></i> {formatHelper.getTwitterHandle(dapp.twitter)}
                             </a> :
                             <span><i className='icon-link fa fa-fw fa-twitter'></i> No Twitter</span>
                           }
