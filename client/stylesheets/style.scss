@@ -374,11 +374,24 @@ footer.white-text a, .filter-area a {
   color: rgba(0, 0, 0, 0.87);
 }
 
-#details-page-overview-details {
-}
-
 #details-page-content {
   max-height: 75vh;
+  .status-text {
+    font-weight: bold;
+  }
+  #details-page-overview-details {
+    #overview-collection {
+      div.important-link {
+        padding: 0.2rem;
+        padding-left: 2rem;
+      }
+      .link-title {
+        padding-top: 2rem;
+      }
+
+    }
+  }
+
 }
 
 #overview-collection {
