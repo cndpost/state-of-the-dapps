@@ -123,9 +123,9 @@ class DappDetails extends React.Component {
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align truncate">
                           { dapp.url ?
                             <a href={dapp.url} target="_blank">
-                              <i className='icon-link fa fa-fw fa-globe'></i> SITE
+                              <i className='icon-link fa fa-fw fa-globe'></i> Site
                             </a> :
-                            <span><i className='icon-link fa fa-fw fa-globe'></i> NO SITE</span>
+                            <span><i className='icon-link fa fa-fw fa-globe'></i> No Site</span>
                           }
                         </div>
 
@@ -133,9 +133,9 @@ class DappDetails extends React.Component {
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
                           {dapp.github ?
                             <a href={dapp.github} target="_blank">
-                              <i className='icon-link fa fa-fw fa-github'></i> GITHUB
+                              <i className='icon-link fa fa-fw fa-github'></i> Github
                             </a> :
-                            <span><i className='icon-link fa fa-fw fa-github'></i> NO GITHUB</span>
+                            <span><i className='icon-link fa fa-fw fa-github'></i> No Github</span>
                           }
                         </div>
 
@@ -143,9 +143,9 @@ class DappDetails extends React.Component {
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
                           {dapp.blog ?
                             <a href={dapp.blog} target="_blank">
-                              <i className='icon-link fa fa-fw fa-book'></i> BLOG
+                              <i className='icon-link fa fa-fw fa-book'></i> Blog
                             </a> :
-                            <span><i className='icon-link fa fa-fw fa-book'></i> NO BLOG</span>
+                            <span><i className='icon-link fa fa-fw fa-book'></i> No Blog</span>
                           }
                         </div>
 
@@ -153,10 +153,10 @@ class DappDetails extends React.Component {
                           {dapp.wiki ?
 
                             <a href={dapp.wiki} target="_blank">
-                              <i className='icon-link fa fa-fw fa-wikipedia-w'></i> WIKI
+                              <i className='icon-link fa fa-fw fa-wikipedia-w'></i> Wiki
                             </a> :
                             <span>
-                            <i className='icon-link fa fa-fw fa-wikipedia-w'></i> NO WIKI
+                            <i className='icon-link fa fa-fw fa-wikipedia-w'></i> No Wiki
                           </span>
                           }
                         </div>
@@ -165,11 +165,11 @@ class DappDetails extends React.Component {
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
                           {dapp.slack ?
                             <a href={dapp.slack} target="_blank">
-                              <i className='icon-link fa fa-fw fa-slack'></i> SLACK
+                              <i className='icon-link fa fa-fw fa-slack'></i> Slack
                             </a>
                             :
                             <span>
-                              <i className='icon-link fa fa-fw fa-slack'></i> NO SLACK
+                              <i className='icon-link fa fa-fw fa-slack'></i> No Slack
                             </span>
                           }
                         </div>
@@ -178,9 +178,9 @@ class DappDetails extends React.Component {
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
                           {dapp.gitter ?
                             <a href={dapp.gitter} target="_blank">
-                              <i className='icon-link fa fa-fw fa-comments'></i> GITTER
+                              <i className='icon-link fa fa-fw fa-comments'></i> Gitter
                             </a> :
-                            <span><i className='icon-link fa fa-fw fa-comments'></i> NO GITTER</span>
+                            <span><i className='icon-link fa fa-fw fa-comments'></i> No Gitter</span>
                           }
                         </div>
 
@@ -190,7 +190,7 @@ class DappDetails extends React.Component {
                             <a href={dapp.reddit} target="_blank">
                               <i className='icon-link fa fa-fw fa-reddit'></i> REDDIT
                             </a> :
-                            <span><i className='icon-link fa fa-fw fa-reddit'></i> NO REDDIT</span>
+                            <span><i className='icon-link fa fa-fw fa-reddit'></i> No REDDIT</span>
                           }
                         </div>
 
@@ -202,7 +202,7 @@ class DappDetails extends React.Component {
                               <i className='icon-link fa fa-fw fa-newspaper-o'></i> The Etherian
                             </a> :
                             <span>
-                            <i className='icon-link fa fa-fw fa-newspaper-o'></i> NO Etherian</span>
+                            <i className='icon-link fa fa-fw fa-newspaper-o'></i> No Etherian</span>
                           }
                         </div>
 
