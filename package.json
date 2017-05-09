@@ -22,7 +22,8 @@
     "react-mounter": "^1.0.0",
     "react-simple-di": "^1.0.1",
     "slug": "^0.9.1",
-    "unslug": "^0.1.0"
+    "unslug": "^0.1.0",
+    "validate.js": "^0.11.1"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.x.x",

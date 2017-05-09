@@ -1,13 +1,13 @@
-import {Meteor} from "meteor/meteor";
-import {Queue} from "/lib/collections/";
+import {Meteor} from 'meteor/meteor';
+import {Queue} from '/lib/collections/';
 export default function () {
   Meteor.methods({
     'queues.submit'(data) {
       // validate the data before emailing it out
       // TODO rate limit?
       var ShortString = Match.Where((x) => {
-        check(x, String)
-        return x.length <= 128
+        check(x, String);
+        return x.length <= 128;
       });
       check(data, {
         dapp_name: ShortString,
@@ -21,6 +21,10 @@ export default function () {
         license: ShortString,
         tags: ShortString,
         status: ShortString,
+        facebook: ShortString,
+        gitter: ShortString,
+        the_etherian: ShortString,
+        twitter: ShortString,
         contract_address_mainnet: ShortString,
         contract_address_ropsten: ShortString,
       });
