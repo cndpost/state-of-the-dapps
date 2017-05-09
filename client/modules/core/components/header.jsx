@@ -1,6 +1,7 @@
 import React from 'react';
 import InfoModal from '/client/modules/core/containers/info_modal';
 import SubmitModal from '/client/modules/core/containers/submit_modal';
+import SettingsModal from '/client/modules/core/containers/settings_modal';
 
 class Header extends React.Component {
   constructor(props) {
@@ -24,9 +25,9 @@ class Header extends React.Component {
           <section>
           </section>
         </div>
-        <InfoModal />
-        <SubmitModal />
-
+        <InfoModal/>
+        <SubmitModal/>
+        <SettingsModal/>
       </div>
     );
   }
