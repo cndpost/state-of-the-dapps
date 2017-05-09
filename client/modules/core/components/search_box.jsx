@@ -6,6 +6,16 @@ class SearchBox extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    let {searchBox} = this.refs;
+    searchBox.focus();
+  }
+
+  searchButtonPress() {
+    let {searchBox} = this.refs;
+    searchBox.focus();
+  }
+
   handleKeyUp() {
     let {searchAction} = this.props;
     let {searchBox} = this.refs;
@@ -18,9 +28,9 @@ class SearchBox extends React.Component {
         <div className="row container">
           <div className='search-area'>
             <div className='input-field col s12'>
-              <i className='fa fa-fw fa-search prefix'></i>
-              <input ref='searchBox' onKeyUp={this.handleKeyUp.bind(this)} type='text' className='search-box'></input>
-              <label>Search</label>
+              <i className='fa fa-fw fa-search prefix' onClick={this.searchButtonPress.bind(this)}></i>
+              <input ref='searchBox' onClick={this.searchButtonPress.bind(this)} onKeyUp={this.handleKeyUp.bind(this)} type='text' className='search-box'></input>
+              <label onClick={this.searchButtonPress.bind(this)}>Search</label>
             </div>
             <IconButtons/>
           </div>
