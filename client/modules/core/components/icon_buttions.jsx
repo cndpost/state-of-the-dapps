@@ -14,6 +14,9 @@ class IconButtions extends React.Component {
         <IconButton style={{paddingLeft: '5px', fontSize: '30px'}}
                     customClass="fa fa-fw fa-plus-circle info-button"
                     target="submitModal"/>
+        <IconButton style={{paddingLeft: '5px', fontSize: '30px'}}
+                    customClass="fa fa-fw fa-cog info-button"
+                    target="settingsModal"/>
       </div>
     );
   }
