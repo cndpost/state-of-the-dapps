@@ -183,7 +183,7 @@ class DappDetails extends React.Component {
                         </div>
 
 
-                        <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
+                        <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align truncate">
                           { dapp.reddit ?
                             <a href={dapp.reddit} target="_blank">
                               <i className='icon-link fa fa-fw fa-reddit'></i> {formatHelper.getRedditUrl(dapp.reddit)}
@@ -205,7 +205,7 @@ class DappDetails extends React.Component {
                         </div>
 
 
-                        <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
+                        <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align truncate">
                           { dapp.twitter ?
                             <a href={dapp.twitter} target="_blank">
                               <i

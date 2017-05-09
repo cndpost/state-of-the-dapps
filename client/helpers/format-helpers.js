@@ -13,11 +13,10 @@ const getCountry = (timezone) => {
   return area[1];
 };
 const getTwitterHandle = (twitterLink) => {
-  return (twitterLink.replace('https://www.twitter.com/', '@'));
+  return (twitterLink.replace('https://www.twitter.com/', '@').replace('https://twitter.com/', '@'));
 };
 const getRedditUrl = (redditLink) => {
-  return (redditLink.replace('http://reddit.com', ''));
-
+  return (redditLink.replace('https://www.reddit.com', '').replace('https://reddit.com', ''));
 };
 
 const formatHelper = {

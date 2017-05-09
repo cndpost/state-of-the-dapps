@@ -6,6 +6,16 @@ Authorative source: https://docs.google.com/spreadsheets/d/1VdRMFENPzjL2V-vZhcc_
 
 This is a service provided by [EtherCasts](http://ethercasts.com)
 
+## API
+
+We have the following REST / JSON endpoints:
+
+```
+http://dapps.ethercasts.com/api/dapps
+http://dapps.ethercasts.com/api/dapps-by-tag/<tag>
+```
+For status.im I would suggest to add the `status-im` tag to all dapps that support status.im, and then call http://dapps.ethercasts.com/api/dapps-by-tag/status-im to fetch those.
+
 ## Development
 
 ### Meteor web application
