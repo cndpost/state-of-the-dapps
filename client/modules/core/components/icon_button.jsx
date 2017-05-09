@@ -10,7 +10,6 @@ class IconButton extends React.Component {
     $(document).ready(function () {
       $('.modal').modal();
     });
-
   }
 
   componentDidUpdate() {
