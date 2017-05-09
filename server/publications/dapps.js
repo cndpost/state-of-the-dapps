@@ -33,5 +33,9 @@ export default function () {
     const selector = (tags) ? {tags: {$in: tags}} : {_id: 'cant-be-found'};
     return Dapps.find(selector);
   });
-
+  Meteor.publish('dapps.tags.distinct', function () {
+    const selector = {};
+    const options = {fields: {tags: 1}};
+    return Dapps.find(selector, options);
+  });
 }
