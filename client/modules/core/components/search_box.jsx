@@ -29,7 +29,7 @@ class SearchBox extends React.Component {
           <div className='search-area'>
             <div className='input-field col s12'>
               <i className='fa fa-fw fa-search prefix' onClick={this.searchButtonPress.bind(this)}></i>
-              <input ref='searchBox' onKeyUp={this.handleKeyUp.bind(this)} type='text' className='search-box'></input>
+              <input ref='searchBox' onClick={this.searchButtonPress.bind(this)} onKeyUp={this.handleKeyUp.bind(this)} type='text' className='search-box'></input>
               <label>Search</label>
             </div>
             <IconButtons/>
