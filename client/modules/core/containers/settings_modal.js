@@ -11,7 +11,6 @@ export const composer = ({context}, onData) => {
       return d.tags;
     });
     let tags = _.flatten(_.pluck(distinctData, 'tags'));
-    console.log(tags);
     onData(null, {tags});
   };
 
