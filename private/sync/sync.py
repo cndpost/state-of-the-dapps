@@ -128,6 +128,7 @@ def main():
     db = client.get_default_database()
     db.dapps.ensure_index('name')
     db.dapps.ensure_index('slug')
+    db.dapps.ensure_index('tags')
 
     if args.import_queue:
         print "import queue"
