@@ -39,3 +39,4 @@ simple:rest                   # The easiest way to add a REST API to your Meteor
 meteortoys:allthings          # Insanely Handy Development Tools
 fourseven:scss                # Style with attitude. Sass and SCSS support for Meteor.js.
 natestrauser:select2
+force-ssl
