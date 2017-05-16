@@ -19,7 +19,7 @@ class SearchBox extends React.Component {
   handleKeyUp() {
     let {searchAction} = this.props;
     let {searchBox} = this.refs;
-    searchAction(searchBox.value)
+    searchAction(searchBox.value);
   }
 
   render() {
