@@ -5,7 +5,7 @@ class FilterArea extends React.Component {
     super(props);
     this.state = {
       sortType: 'updated',
-      sortTypes: ['updated', 'status'],
+      sortTypes: [ 'updated', 'status' ],
       sortDirection: 'desc',
     };
   }
