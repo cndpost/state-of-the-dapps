@@ -1,5 +1,5 @@
-import React from "react";
-import IconButton from "../containers/icon_button";
+import React from 'react';
+import IconButton from '../containers/icon_button';
 class IconButtions extends React.Component {
   constructor(props) {
     super(props);
