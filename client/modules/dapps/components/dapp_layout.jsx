@@ -16,15 +16,27 @@ class DappLayout extends React.Component {
   }
 
   toggleSortType() {
-    this.setState({sortType: (this.state.sortType == 'status') ? 'updated' : 'status'});
+    let sortType = (this.state.sortType === 'status') ? 'updated' : 'status';
+    this.setState({sortType});
+    analytics.track('toggleSortType', {
+      sortType
+    });
   }
 
   toggleDirection() {
-    this.setState({sortDirection: (this.state.sortDirection == 'asc') ? 'desc' : 'asc'});
+    let sortDirection = (this.state.sortDirection === 'asc') ? 'desc' : 'asc';
+    this.setState({sortDirection});
+    analytics.track('toggleDirection', {
+      sortDirection
+    });
   }
 
   searchAction(searchText) {
     this.setState({searchText});
+    // TODO debounce
+    analytics.track('searchAction', {
+      searchText
+    });
   }
 
   filterAction(tags) {
