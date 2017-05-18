@@ -64,6 +64,13 @@ export default {
               'success'
             );
             $thisForm[0].reset();
+
+            const hasWeb3 = (typeof web3 !== 'undefined');
+            analytics.identify({
+              name: queue.contact,
+              email: queue.contact_email,
+              hasWeb3
+            });
             analytics.track('submitDapp', {
               dapp_name: queue.dapp_name,
               result: 'success',
