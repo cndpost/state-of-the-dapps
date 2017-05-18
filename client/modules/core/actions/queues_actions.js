@@ -66,7 +66,7 @@ export default {
             $thisForm[0].reset();
 
             const hasWeb3 = (typeof web3 !== 'undefined');
-            analytics.identify({
+            analytics.identify(queue.contact_email, {
               '$email': queue.contact_email,
               '$name': queue.contact,
               hasWeb3
