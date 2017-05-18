@@ -5,9 +5,11 @@ import SearchBox from '/client/modules/core/containers/search_box';
 
 let trackSearchAction = _.debounce(function (searchText) {
   // console.log('searchAction', searchText);
-  analytics.track('searchAction', {
-    searchText
-  });
+  if (searchText) {
+    analytics.track('searchAction', {
+      searchText
+    });
+  }
 }, 300);
 
 class DappLayout extends React.Component {
