@@ -3,6 +3,13 @@ import FilterArea from '/client/modules/core/containers/filter_area';
 import DappList from '/client/modules/dapps/containers/dapp_list';
 import SearchBox from '/client/modules/core/containers/search_box';
 
+let trackSearchAction = _.debounce(function (searchText) {
+  // console.log('searchAction', searchText);
+  analytics.track('searchAction', {
+    searchText
+  });
+}, 300);
+
 class DappLayout extends React.Component {
   constructor(props) {
     super(props);
@@ -31,10 +38,7 @@ class DappLayout extends React.Component {
 
   searchAction(searchText) {
     this.setState({searchText});
-    // TODO debounce
-    analytics.track('searchAction', {
-      searchText
-    });
+    trackSearchAction(searchText);
   }
 
   render() {
