@@ -1,14 +1,15 @@
-import { composeAll, composeWithTracker, useDeps } from 'mantra-core';
+import {composeAll, composeWithTracker, useDeps} from 'mantra-core';
 
 import Dapp from '../components/dapp.jsx';
 
-export const composer = ({ context, dapp }, onData) => {
-  const { Meteor, Collections } = context();
+export const composer = ({context, dapp}, onData) => {
+  const {Meteor, Collections} = context();
   let isFeatured = _.contains(dapp.tags, 'featured');
-  onData(null, { isFeatured });
+  onData(null, {isFeatured});
 };
 
 export const depsMapper = (context, actions) => ({
+  trackLink: actions.analytics.trackLink,
   context: () => context
 });
 
