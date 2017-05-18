@@ -67,8 +67,8 @@ export default {
 
             const hasWeb3 = (typeof web3 !== 'undefined');
             analytics.identify({
-              name: queue.contact,
-              email: queue.contact_email,
+              '$email': queue.contact_email,
+              '$name': queue.contact,
               hasWeb3
             });
             analytics.track('submitDapp', {
