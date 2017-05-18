@@ -1,5 +1,5 @@
-import React from "react";
-import IconButtons from "../containers/icon_buttions";
+import React from 'react';
+import IconButtons from '../containers/icon_buttions';
 
 class SearchBox extends React.Component {
   constructor(props) {
