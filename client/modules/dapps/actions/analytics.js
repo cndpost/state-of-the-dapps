@@ -1,7 +1,7 @@
 import {$} from 'meteor/jquery';
 
 export default {
-  trackLink(event) {
+  trackLink(element, event) {
     var url = event.currentTarget.href;
     var type = $(event.currentTarget).data('type');
     // console.log('link', url, type);

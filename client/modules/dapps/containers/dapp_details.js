@@ -3,7 +3,7 @@ import DappDetails from '../components/dapp_details.jsx';
 
 export const composer = ({context, slug}, onData) => {
   const {Meteor, Collections} = context();
-  const subscriptionReady = [ Meteor.subscribe('dapps.bySlug', slug).ready() ];
+  const subscriptionReady = [Meteor.subscribe('dapps.bySlug', slug).ready()];
   const dataReady = () => {
     const selector = {slug};
     const dapp = Collections.Dapps.findOne(selector);
@@ -15,6 +15,7 @@ export const composer = ({context, slug}, onData) => {
 
 
 export const depsMapper = (context, actions) => ({
+  trackLink: actions.analytics.trackLink,
   context: () => context
 });
 
