@@ -9,11 +9,11 @@ class IconButtions extends React.Component {
     return (
       <div className="pull-right">
         <IconButton style={{paddingLeft: '0px', fontSize: '30px'}} customClass="fa fa-info-circle fa-2"
-                    target="infoModal"/>
+                    target="infoModal" title="Status Color Key &amp; About this site"/>
 
         <IconButton style={{paddingLeft: '5px', fontSize: '30px'}}
                     customClass="fa fa-fw fa-plus-circle info-button"
-                    target="submitModal"/>
+                    target="submitModal" title="Submit / Update your Dapp"/>
       </div>
     );
   }
