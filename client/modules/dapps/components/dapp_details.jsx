@@ -112,7 +112,7 @@ class DappDetails extends React.Component {
                           <div className="col s10 grey-text text-darken-4 left-align">
                             <a target='_blank' onClick={trackLink.bind(this)} data-type='contract_address_ropsten'
                                href={'https://ropsten.io/address/' + dapp.contract_address_ropsten}>
-                              {dapp.contract_address_mainnet}
+                              {dapp.contract_address_ropsten}
                             </a>
                           </div>
                         </li>
