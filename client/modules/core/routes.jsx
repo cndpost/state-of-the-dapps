@@ -10,6 +10,10 @@ export default function (injectDeps, {FlowRouter}) {
       mount(MainLayoutCtx, {
         content: () => (<DappLayout />)
       });
+      const hasWeb3 = (typeof web3 !== 'undefined');
+      analytics.page('home', {
+        hasWeb3
+      });
     }
   });
 }

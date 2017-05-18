@@ -11,6 +11,11 @@ export default function (injectDeps, {FlowRouter}) {
       mount(MainLayoutCtx, {
         content: () => (<DappDetails slug={params.slug}/>)
       });
+      const hasWeb3 = (typeof web3 !== 'undefined');
+      analytics.page('dappDetailsPage', {
+        dapp: params.slug,
+        hasWeb3
+      });
     }
   });
 }
