@@ -1,5 +1,5 @@
-import React from "react";
-import IconButtons from "../containers/icon_buttions";
+import React from 'react';
+import IconButtons from '../containers/icon_buttions';
 
 class SearchBox extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class SearchBox extends React.Component {
   handleKeyUp() {
     let {searchAction} = this.props;
     let {searchBox} = this.refs;
-    searchAction(searchBox.value)
+    searchAction(searchBox.value);
   }
 
   render() {
