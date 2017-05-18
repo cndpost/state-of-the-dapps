@@ -21,6 +21,7 @@ class IconButton extends React.Component {
   handleClick() {
     let {target} = this.props;
     $('#' + target).modal('open');
+    analytics.page(target);
   }
 
   render() {

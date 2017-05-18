@@ -9,6 +9,7 @@ class InfoModal extends React.Component {
   clickSubmitDapp() {
     $('#infoModal').modal('close');
     $('#submitModal').modal('open');
+    analytics.page('submitModal');
   }
 
   render() {
