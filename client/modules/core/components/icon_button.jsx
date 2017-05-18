@@ -25,11 +25,12 @@ class IconButton extends React.Component {
   }
 
   render() {
-    let {style, customClass, target} = this.props;
+    let {style, customClass, target, title} = this.props;
     return (
       <i ref='iconButton' style={style}
          className={`${customClass} iconButton`}
          data-target={target}
+         title={title}
          onClick={this.handleClick.bind(this)}
          aria-hidden="true"
       ></i>
