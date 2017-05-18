@@ -38,6 +38,11 @@ export default {
           errors.toString(),
           'error'
         );
+        analytics.track('submitDapp', {
+          dapp_name: queue.dapp_name,
+          result: 'error',
+          error: errors.toString()
+        });
       } else {
         Meteor.call('queues.submit', queue, (err) => {
           if (err) {
@@ -49,7 +54,7 @@ export default {
             analytics.track('submitDapp', {
               dapp_name: queue.dapp_name,
               result: 'error',
-              err
+              error: err
             });
           } else {
             $('#submitModal').modal('close');
