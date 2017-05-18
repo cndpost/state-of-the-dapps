@@ -46,6 +46,11 @@ export default {
               err,
               'error'
             );
+            analytics.track('submitDapp', {
+              dapp_name: queue.dapp_name,
+              result: 'error',
+              err
+            });
           } else {
             $('#submitModal').modal('close');
             swal(
@@ -54,6 +59,10 @@ export default {
               'success'
             );
             $thisForm[0].reset();
+            analytics.track('submitDapp', {
+              dapp_name: queue.dapp_name,
+              result: 'success',
+            });
           }
         });
       }
