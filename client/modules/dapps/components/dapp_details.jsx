@@ -3,7 +3,6 @@ import {dappHelper} from '/client/helpers/dappHelpers';
 import {formatHelper} from '/client/helpers/format-helpers';
 
 import DappsRelated from '/client/modules/dapps/containers/dapps_related';
-import AnalyticsComponent from './analytics_component';
 
 class DappDetails extends React.Component {
   constructor(props) {
