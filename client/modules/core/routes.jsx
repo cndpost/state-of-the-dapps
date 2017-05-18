@@ -1,3 +1,4 @@
+import {Meteor} from 'meteor/meteor';
 import React from 'react';
 import {mount} from 'react-mounter';
 import MainLayout from './components/main_layout.jsx';
@@ -10,10 +11,13 @@ export default function (injectDeps, {FlowRouter}) {
       mount(MainLayoutCtx, {
         content: () => (<DappLayout />)
       });
-      const hasWeb3 = (typeof web3 !== 'undefined');
-      analytics.page('home', {
-        hasWeb3
-      });
+      // XXX workaround for https://github.com/okgrow/analytics/issues/58
+      Meteor.setTimeout(() => {
+        const hasWeb3 = (typeof web3 !== 'undefined');
+        analytics.page('home', {
+          hasWeb3
+        });
+      }, 500);
     }
   });
 }
