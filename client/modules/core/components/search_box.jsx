@@ -15,21 +15,6 @@ class SearchBox extends React.Component {
       text: 'invalid'
     }, {id: 4, text: 'wontfix'}];
     searchBox.focus();
-    this.initializeSelect();
-  }
-
-  componentDidUpdate() {
-    this.initializeSelect();
-  }
-
-  initializeSelect() {
-    let {allTags} = this.props;
-    $(function () {
-      $('#filter-area').select2({
-        placeholder: 'Select Tags',
-        data: allTags
-      });
-    });
   }
 
   searchButtonPress() {
@@ -50,9 +35,8 @@ class SearchBox extends React.Component {
           <div className='search-area'>
             <div className='input-field col s12'>
               <i className='fa fa-fw fa-search prefix' onClick={this.searchButtonPress.bind(this)}></i>
-              <input ref='searchBox' onClick={this.searchButtonPress.bind(this)} onKeyUp={this.handleKeyUp.bind(this)}
-                     type='text' className='search-box'></input>
-              <label>Search</label>
+              <input ref='searchBox' onClick={this.searchButtonPress.bind(this)} onKeyUp={this.handleKeyUp.bind(this)} type='text' className='search-box'></input>
+              <label onClick={this.searchButtonPress.bind(this)}>Search</label>
             </div>
 
 
