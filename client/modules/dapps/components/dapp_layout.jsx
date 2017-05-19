@@ -3,15 +3,6 @@ import FilterArea from '/client/modules/core/containers/filter_area';
 import DappList from '/client/modules/dapps/containers/dapp_list';
 import SearchBox from '/client/modules/core/containers/search_box';
 
-let trackSearchAction = _.debounce(function (searchText) {
-  // console.log('searchAction', searchText);
-  if (searchText) {
-    analytics.track('searchAction', {
-      searchText
-    });
-  }
-}, 300);
-
 class DappLayout extends React.Component {
   constructor(props) {
     super(props);
@@ -22,6 +13,18 @@ class DappLayout extends React.Component {
       tags: ''
     };
 
+  }
+
+  componentDidMount() {
+    this.debounceSearchAction = _.debounce(function (searchText) {
+      this.setState({searchText});
+      if (searchText.length >= 3) {
+        // console.log('searchAction', searchText);
+        analytics.track('searchAction', {
+          searchText
+        });
+      }
+    }, 300);
   }
 
   toggleSortType() {
@@ -41,8 +44,7 @@ class DappLayout extends React.Component {
   }
 
   searchAction(searchText) {
-    this.setState({searchText});
-    trackSearchAction(searchText);
+    this.debounceSearchAction(searchText);
   }
 
   filterAction(tags) {
