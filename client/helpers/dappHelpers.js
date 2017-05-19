@@ -15,9 +15,10 @@ const getStatusColor = (status) => {
     'green accent-2', // 7. Working Prototype
     'light-green accent-3' // 8. live
   ];
-  return statusColors[parseInt(status[0], 10)];
+  return (status) ? statusColors[parseInt(status[0], 10)] : '';
 };
 const getStatusText = (status) => {
+
   return status.replace(/\d[.]+/g, '');
 };
 const slugyfy = (slugText) => {
