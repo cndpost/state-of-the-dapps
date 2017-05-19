@@ -2,10 +2,10 @@
  * Created by jr on 10/21/16.
  */
 const capitalize = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  return (string) ? string.charAt(0).toUpperCase() + string.slice(1) : '';
 };
 const capsAll = (string) => {
-  return string.toUpperCase();
+  return (string) ? string.toUpperCase() : '';
 };
 
 const getCountry = (timezone) => {
@@ -13,10 +13,10 @@ const getCountry = (timezone) => {
   return area[1];
 };
 const getTwitterHandle = (twitterLink) => {
-  return (twitterLink.replace('https://www.twitter.com/', '@').replace('https://twitter.com/', '@'));
+  return ((twitterLink) ? twitterLink.replace('https://www.twitter.com/', '@').replace('https://twitter.com/', '@') : '');
 };
 const getRedditUrl = (redditLink) => {
-  return (redditLink.replace('https://www.reddit.com', '').replace('https://reddit.com', ''));
+  return ((redditLink) ? redditLink.replace('https://www.reddit.com', '').replace('https://reddit.com', '') : '');
 };
 
 const formatHelper = {

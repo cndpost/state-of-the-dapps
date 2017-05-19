@@ -1,19 +1,21 @@
 import React from 'react';
 import {$} from 'meteor/jquery';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
+
 import IconButtons from '../containers/icon_buttions';
 
 
 class SearchBox extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      selectedTags: []
+    };
   }
 
   componentDidMount() {
-    let {searchBox, allTags} = this.refs;
-    var data = [{id: 0, text: 'enhancement'}, {id: 1, text: 'bug'}, {id: 2, text: 'duplicate'}, {
-      id: 3,
-      text: 'invalid'
-    }, {id: 4, text: 'wontfix'}];
+    let {searchBox} = this.refs;
     searchBox.focus();
   }
 
@@ -28,21 +30,33 @@ class SearchBox extends React.Component {
     searchAction(searchBox.value);
   }
 
+  onFilterChange(selectedTags) {
+    let {filterAction} = this.props;
+    this.setState({selectedTags: (selectedTags) ? selectedTags : []});
+    filterAction((selectedTags) ? selectedTags.split(',') : []);
+  }
+
   render() {
+    let {tags} = this.props;
+    let {selectedTags} = this.state;
     return (
+
       <section className="bg-white">
         <div className="row container">
           <div className='search-area'>
             <div className='input-field col s12'>
               <i className='fa fa-fw fa-search prefix' onClick={this.searchButtonPress.bind(this)}></i>
-              <input ref='searchBox' onClick={this.searchButtonPress.bind(this)} onKeyUp={this.handleKeyUp.bind(this)} type='text' className='search-box'></input>
+              <input ref='searchBox' onClick={this.searchButtonPress.bind(this)} onKeyUp={this.handleKeyUp.bind(this)}
+                     type='text' className='search-box'></input>
               <label onClick={this.searchButtonPress.bind(this)}>Search</label>
             </div>
 
 
             <IconButtons/>
-            <select id="filter-area" class="js-example-basic-multiple" multiple="multiple">
-            </select>
+            <Select multi simpleValue value={selectedTags} placeholder="Select Tags"
+                    options={tags} onChange={this.onFilterChange.bind(this)}/>
+
+
           </div>
 
         </div>
@@ -51,4 +65,6 @@ class SearchBox extends React.Component {
   }
 }
 
-export default SearchBox;
+export
+default
+SearchBox;

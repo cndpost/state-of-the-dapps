@@ -1,6 +1,7 @@
 import {Dapps} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {Mongo} from 'meteor/mongo';
+import {_} from 'meteor/underscore';
 
 export default function () {
   Meteor.publish('dapps.list', function () {

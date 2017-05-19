@@ -19,13 +19,13 @@ const getStatusColor = (status) => {
 };
 const getStatusText = (status) => {
 
-  return status.replace(/\d[.]+/g, '');
+  return (status) ? status.replace(/\d[.]+/g, '') : '';
 };
 const slugyfy = (slugText) => {
-  return slug(slugText);
+  return (slugText) ? slug(slugText) : '';
 };
 const unSlugyfy = (slugText) => {
-  return unslug(slugText);
+  return (slugText) ? unslug(slugText) : '';
 };
 const dappHelper = {getStatusColor, getStatusText, slugyfy, unSlugyfy};
 

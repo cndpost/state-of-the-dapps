@@ -118,7 +118,16 @@ Dapp.defaultProps = {
     status: '6. Demo',
     last_update: '2012',
     reddit: 'reddit',
-    contact: ''
+    contact: '',
+    blog: '',
+    wiki: '',
+    slack: '',
+    gitter: '',
+    the_etherian: '',
+    twitter: '',
+    facebook: '',
+    contract_address_mainnet: '',
+    contract_address_ropsten: ''
   }
 };
 export default Dapp;

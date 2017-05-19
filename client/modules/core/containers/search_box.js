@@ -1,5 +1,6 @@
 import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
 
+
 import SearchBox from '../components/search_box.jsx';
 
 export const composer = ({context}, onData) => {
@@ -7,15 +8,13 @@ export const composer = ({context}, onData) => {
   const subscriptionReady = [Meteor.subscribe('dapps.tags.distinct').ready()];
   const dataReady = () => {
     let data = Collections.Dapps.find().fetch();
-    let distinctData = _.uniq(data, false, function (d) {
+    let tags = _.map(_.flatten(_.pluck(_.uniq(data, false, function (d) {
       return d.tags;
+    }), 'tags')), (tag, index) => {
+      return {label: tag, value: tag};
     });
-    let tags = _.flatten(_.pluck(distinctData, 'tags'));
-    const allTags = _.map(tags, (tag, index) => {
-      return {id: index, text: tag};
-    });onData(null, {allTags});
+    onData(null, {tags});
   };
-
   (subscriptionReady) ? dataReady() : onData();
 };
 
