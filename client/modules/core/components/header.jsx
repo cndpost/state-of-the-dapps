@@ -19,7 +19,7 @@ class Header extends React.Component {
         </div>
         <div ref='navArea' className='header-container container'>
           <header className='center-align'>
-            <h1><a href="/" id="home-link">State of the Ðapps</a></h1>
+            <h1><a href="/" id="home-link" title="State of the Dapps (Decentralized Apps) on the Ethereum blockchain">State of the Ðapps</a></h1>
           </header>
           <section>
           </section>
