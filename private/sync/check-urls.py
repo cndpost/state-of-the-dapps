@@ -67,12 +67,9 @@ def is_parking(body):
     return False
 
 
-def main():
-    client = MongoClient(MONGODB_URL)
-    db = client.get_default_database()
-
+def check_urls(db):
     bar = progressbar.ProgressBar()
-    dapps = db.dapps.find({'url': {'$ne': ''}, 'status': {'$nin': ['1. Abandoned']}})
+    dapps = db.dapps.find({'url': {'$ne': ''}, 'status': {'$nin': ['1. Abandoned']}}, {'name': 1, 'url': 1})
     for dapp in bar(list(dapps)):
         url = dapp.get('url')
         # print dapp.get('name'), " Checking ", url, "..."
@@ -89,6 +86,32 @@ def main():
             print
             print dapp.get('name'), "\t", url, "\t", str(code), error, parking
             print
+
+def check_field_urls(db, field_name):
+    bar = progressbar.ProgressBar()
+    dapps = db.dapps.find({field_name: {'$ne': ''}, 'status': {'$nin': ['1. Abandoned']}}, {'name': 1, field_name: 1})
+    for dapp in bar(list(dapps)):
+        url = dapp.get(field_name)
+        # print dapp.get('name'), " Checking ", url, "..."
+
+        if not url:
+            continue
+
+        code, error, body = check_url(url)
+
+        if code != 200:
+            print
+            print dapp.get('name'), "\t", url, "\t", str(code), error
+            print
+
+def main():
+    client = MongoClient(MONGODB_URL)
+    db = client.get_default_database()
+
+    check_urls(db)
+    check_field_urls(db, 'github')
+    check_field_urls(db, 'wiki')
+    check_field_urls(db, 'blog')
 
 if __name__ == '__main__':
     main()
