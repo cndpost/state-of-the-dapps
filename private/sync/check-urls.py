@@ -4,6 +4,7 @@ import os
 
 import requests
 from pymongo import MongoClient
+import progressbar
 
 MONGODB_URL = os.getenv('MONGODB_URL', 'mongodb://127.0.0.1:3001/meteor')
 
@@ -70,8 +71,9 @@ def main():
     client = MongoClient(MONGODB_URL)
     db = client.get_default_database()
 
+    bar = progressbar.ProgressBar()
     dapps = db.dapps.find({'url': {'$ne': ''}, 'status': {'$nin': ['1. Abandoned']}})
-    for dapp in dapps:
+    for dapp in bar(list(dapps)):
         url = dapp.get('url')
         # print dapp.get('name'), " Checking ", url, "..."
 
@@ -84,7 +86,8 @@ def main():
             parking = is_parking(body)
 
         if code != 200 or parking:
-            print dapp.get('name'), url, code, error, parking
+            print
+            print dapp.get('name'), "\t", url, "\t", str(code), error, parking
             print
 
 if __name__ == '__main__':
