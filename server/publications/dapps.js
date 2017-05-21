@@ -4,7 +4,7 @@ import {Mongo} from 'meteor/mongo';
 
 export default function () {
   Meteor.publish('dapps.list', function () {
-    return Dapps.find();
+    return Dapps.find({}, {sort: {['last_update']: -1}});
   }, {
     url: '/api/dapps'
   });

@@ -11,6 +11,7 @@ export const composer = ({context, sortDirection, searchText, sortType}, onData)
     let sorter = (sortDirection == 'desc') ? -1 : 1;
     let sortField = (sortType == 'status') ? 'status' : 'last_update';
     let featuredDapps = (searchText) ? [] : Collections.Dapps.find({tags: {$in: [ 'featured' ]}}).fetch();
+    let defaultHideStates = [ '0. Unknown', '1. Abandoned', '2. On Hold', '3. Stealth Mode' ];
     const selector = (searchText) ? {
       $or: [
         {name: {$regex: searchText, $options: 'i'}},
@@ -18,7 +19,7 @@ export const composer = ({context, sortDirection, searchText, sortType}, onData)
         {tags: {$regex: searchText, $options: 'i'}},
         {contact: {$regex: searchText, $options: 'i'}},
       ]
-    } : {tags: {$nin: [ 'featured' ]}};
+    } : {status: {$nin: defaultHideStates}, tags: {$nin: [ 'featured' ]}};
     const dapps = Collections.Dapps.find(selector, {sort: {[sortField]: sorter}}).fetch();
     onData(null, {dapps, featuredDapps});
   };
