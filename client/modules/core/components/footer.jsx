@@ -13,7 +13,7 @@ class Footer extends React.Component {
             Service by <a target='_blank' href='http://ethercasts.com/'>EtherCasts</a>
           </div>
           <div className='col s12 m4'>
-            UI by <a target='_blank' href='http://hitchcott.com'>Hitchcott</a>
+            Twitter <a href='https://twitter.com/ethercasts' target='_blank'>@EtherCasts</a>
           </div>
           <div className='col s12 m4'>
             Fork me on <a target='_blank' href='https://github.com/EtherCasts/state-of-the-dapps'><i
