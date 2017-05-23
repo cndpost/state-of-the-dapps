@@ -23,7 +23,7 @@ def sync_sheet(worksheet, db):
         print(cell_list)
 
         if row_nr > 0:
-            name, description, url, github, reddit, slack, gitter, blog, wiki, the_etherian, twitter, facebook, contact, tags, license, platform, status, created, last_update, contract_address_mainnet, contract_address_ropsten, icon = cell_list
+            name, description, url, github, reddit, slack, gitter, blog, wiki, the_etherian, twitter, facebook, contact, tags, license, platform, status, created, last_update, contract_address_mainnet, contract_address_ropsten, logo = cell_list
             tags = [tag.strip() for tag in tags.split(',')]
 
             attributes = {
@@ -49,7 +49,7 @@ def sync_sheet(worksheet, db):
                 'last_update': last_update,
                 'contract_address_mainnet': contract_address_mainnet,
                 'contract_address_ropsten': contract_address_ropsten,
-                'icon': icon,
+                'logo': logo,
             }
 
             if 'featured' in tags:
