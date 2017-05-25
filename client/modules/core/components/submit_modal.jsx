@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import ReactDatalist from 'react-datalist';
 
 class SubmitModal extends React.Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class SubmitModal extends React.Component {
 
   render() {
     const {optIn} = this.state;
+    const licenses = ['Apache', 'LGPL', 'GPL', 'proprietary', 'MIT', 'LGPL', 'Opensource', 'GPLv3', 'CC0', 'CC BY-SA', 'CC BY-NC-S'];
     return (
       <div id='submitModal' className='modal'>
         <div className='modal-content'>
@@ -85,29 +87,10 @@ class SubmitModal extends React.Component {
             </div>
             <div className='row slim-row'>
               <div className='input-field col s12 m6'>
-                <select className='browser-default validate' required name='license'>
-                  <option value='' defaultValue>Software License *</option>
-                  <option value='BSD-2-Clause'>(BSD-2-Clause)</option>
-                  <option value='BSD-3-Clause'>(BSD-3-Clause)</option>
-                  <option value='AFL-3.0'>(AFL-3.0)</option>
-                  <option value='APL-1.0'>(APL-1.0)</option>
-                  <option value='Apache-2.0'>(Apache-2.0)</option>
-                  <option value='APSL-2.0'>(APSL-2.0)</option>
-                  <option value='Artistic-2.0'>(Artistic-2.0)</option>
-                  <option value='AAL'>(AAL)</option>
+                <label>Software License *</label>
+                <ReactDatalist list="license" name="license" options={licenses}/>
 
-                  <option value='BSL-1.0'>(BSL-1.0)</option>
 
-                  <option value='CECILL-2.1'>(CECILL-2.1)</option>
-
-                  <option value='CATOSL-1.1'>(CATOSL-1.1)</option>
-
-                  <option value='CDDL-1.0'>(CDDL-1.0)</option>
-                  <option value='EPL-1.'> (EPL-1.0)</option>
-
-                  <option value='OTHERS'>(OTHERS)</option>
-
-                </select>
               </div>
             </div>
             <div className='row slim-row'>
