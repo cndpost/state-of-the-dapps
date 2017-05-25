@@ -9,10 +9,6 @@ class DappDetails extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
-
   render() {
     const {dapp, trackLink} = this.props;
     return (

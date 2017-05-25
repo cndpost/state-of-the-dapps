@@ -34,6 +34,7 @@ class SearchBox extends React.Component {
     let {filterAction} = this.props;
     this.setState({selectedTags: (selectedTags) ? selectedTags : []});
     filterAction((selectedTags) ? selectedTags.split(',') : []);
+    searchAction(searchBox.value);
   }
 
   render() {

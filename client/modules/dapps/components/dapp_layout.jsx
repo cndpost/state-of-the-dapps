@@ -27,6 +27,18 @@ class DappLayout extends React.Component {
     }, 300);
   }
 
+  componentDidMount() {
+    this.debounceSearchAction = _.debounce(function (searchText) {
+      this.setState({searchText});
+      if (searchText.length >= 3) {
+        // console.log('searchAction', searchText);
+        analytics.track('searchAction', {
+          searchText
+        });
+      }
+    }, 300);
+  }
+
   toggleSortType() {
     let sortType = (this.state.sortType === 'status') ? 'updated' : 'status';
     this.setState({sortType});
@@ -44,6 +56,7 @@ class DappLayout extends React.Component {
   }
 
   searchAction(searchText) {
+    this.debounceSearchAction(searchText);
     this.debounceSearchAction(searchText);
   }
 
