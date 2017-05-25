@@ -45,14 +45,16 @@ class SearchBox extends React.Component {
         <div className="row container">
           <div className='search-area'>
             <div className='input-field col s12'>
-              <i className='fa fa-fw fa-search prefix' onClick={this.searchButtonPress.bind(this)}></i>
-              <input ref='searchBox' onClick={this.searchButtonPress.bind(this)} onKeyUp={this.handleKeyUp.bind(this)}
-                     type='text' className='search-box'></input>
-              <label onClick={this.searchButtonPress.bind(this)}>Search</label>
+              <section id="search-area">
+                <i className='fa fa-fw fa-search prefix' onClick={this.searchButtonPress.bind(this)}></i>
+                <input ref='searchBox' onClick={this.searchButtonPress.bind(this)}
+                       onKeyUp={this.handleKeyUp.bind(this)}
+                       type='text' className='search-box'></input>
+                <label onClick={this.searchButtonPress.bind(this)}>Search</label>
+                <IconButtons/>
+              </section>
+
             </div>
-
-
-            <IconButtons/>
             <Select multi simpleValue value={selectedTags} placeholder="Select Tags"
                     options={tags} onChange={this.onFilterChange.bind(this)}/>
 

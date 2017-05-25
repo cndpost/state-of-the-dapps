@@ -36,6 +36,11 @@ footer.white-text a, .filter-area a {
 }
 
 /* search bar */
+#search-area {
+  
+  z-index: 1000;
+}
+
 .search-area {
   position: relative;
   margin-right: 43px;
