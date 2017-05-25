@@ -3,7 +3,18 @@ import React from "react";
 class SubmitModal extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      optIn: false
+    };
   }
+
+  pressOptIn() {
+    const {optIn} = this.state;
+    console.log(optIn);
+    event.preventDefault();
+    this.setState({optIn: !optIn});
+  }
+
 
   submitQueue() {
     const {create} = this.props;
@@ -21,6 +32,7 @@ class SubmitModal extends React.Component {
   }
 
   render() {
+    const {optIn} = this.state;
     return (
       <div id='submitModal' className='modal'>
         <div className='modal-content'>
@@ -106,6 +118,13 @@ class SubmitModal extends React.Component {
                   <option value='7. Working Prototype'>Working Prototype</option>
                   <option value='8. Live'>Live</option>
                 </select>
+              </div>
+              <div className='input-field col s12 m6'>
+                <input className="filled-in" type="checkbox" id="test5" name="opt_in" checked={optIn}
+                       onChange={this.pressOptIn.bind(this)}
+                />
+                <label htmlFor="test5"> It's ok to send me (very occasional) email about the State of the Dapps
+                  service.</label>
               </div>
               <div className='input-field col s12 m6'>
                 <input ref='antiSpam' className='anti-spam validate' required type='text' maxLength='3'/>
