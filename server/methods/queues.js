@@ -6,25 +6,26 @@ export default function () {
     'queues.submit'(data) {
       // validate the data before emailing it out
       // TODO rate limit?
-      var ShortString = Match.Where((x) => {
+      const ShortString = Match.Where((x) => {
         check(x, String);
         return x.length <= 128;
       });
+      console.log(data);
       check(data, {
         dapp_name: ShortString,
         description: ShortString,
         contact: ShortString,
         contact_email: ShortString,
         site: ShortString,
-        reddit: ShortString,
-        slack: ShortString,
-        github: ShortString,
+        reddit: Match.Maybe(ShortString),
+        slack: Match.Maybe(ShortString),
+        github: Match.Maybe(ShortString),
         license: ShortString,
         tags: ShortString,
-        status: ShortSring,
-        contract_address_mainnet: ShortString,
-        contract_address_ropsten: ShortString,
-        opt_in: Match.Maybe(Boolean)
+        status: ShortString,
+        contract_address_mainnet: Match.Maybe(ShortString),
+        contract_address_ropsten: Match.Maybe(ShortString),
+        opt_in: Match.Maybe(ShortString)
       });
       data.timestamp = new Date().toLocaleString();
       Queue.insert(data);
