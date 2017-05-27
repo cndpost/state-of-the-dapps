@@ -9,7 +9,8 @@ class DappLayout extends React.Component {
     this.state = {
       sortType: 'updated',
       sortDirection: 'desc',
-      searchText: ''
+      searchText: '',
+      tags: []
     };
   }
 
@@ -46,7 +47,7 @@ class DappLayout extends React.Component {
   }
 
   render() {
-    let {sortType, sortDirection, searchText} = this.state;
+    let {sortType, sortDirection, searchText, tags} = this.state;
     return (
       <div className='row'>
 
@@ -55,7 +56,7 @@ class DappLayout extends React.Component {
         <FilterArea toggleSortType={this.toggleSortType.bind(this)}
                     toggleDirection={this.toggleDirection.bind(this)}
                     sortType={sortType} sortDirection={sortDirection}/>
-        <DappList searchText={searchText} sortType={sortType} sortDirection={sortDirection}/>
+        <DappList searchText={searchText} sortType={sortType} sortDirection={sortDirection} tags={tags}/>
       </div>
     );
   }
