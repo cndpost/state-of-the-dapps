@@ -1,4 +1,5 @@
 import React from 'react';
+import {_} from 'meteor/underscore';
 import FilterArea from '/client/modules/core/containers/filter_area';
 import DappList from '/client/modules/dapps/containers/dapp_list';
 import SearchBox from '/client/modules/core/containers/search_box';
@@ -47,7 +48,11 @@ class DappLayout extends React.Component {
   }
 
   tagAction(tags) {
-    this.setState({tags});
+    if (!_.isEmpty(tags)) {
+      this.setState({tags});
+
+    }
+    console.log(tags);
   }
 
   render() {
@@ -55,7 +60,7 @@ class DappLayout extends React.Component {
     return (
       <div className='row'>
 
-        <SearchBox searchAction={this.searchAction.bind(this)} tagAction={this.tagAction.bind(this)}/>
+        <SearchBox searchAction={this.searchAction.bind(this)} selectedTags={tags} tagAction={this.tagAction.bind(this)}/>
 
         <FilterArea toggleSortType={this.toggleSortType.bind(this)}
                     toggleDirection={this.toggleDirection.bind(this)}

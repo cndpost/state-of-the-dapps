@@ -35,6 +35,7 @@ class SearchBox extends React.Component {
   }
 
   render() {
+    let {tags,selectedTags} = this.props;
     return (
       <section className="bg-white">
         <div className="row container">
@@ -46,7 +47,8 @@ class SearchBox extends React.Component {
               <label onClick={this.searchButtonPress.bind(this)}>Search</label>
               <Select2
                 multiple
-                data={['bug', 'feature', 'documents', 'discussion']}
+                data={tags}
+                value = {selectedTags}
                 options={
                   {
                     placeholder: 'search by tags'
