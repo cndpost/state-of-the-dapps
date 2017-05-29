@@ -46,12 +46,16 @@ class DappLayout extends React.Component {
     this.debounceSearchAction(searchText);
   }
 
+  tagAction(tags) {
+    this.setState({tags});
+  }
+
   render() {
     let {sortType, sortDirection, searchText, tags} = this.state;
     return (
       <div className='row'>
 
-        <SearchBox searchAction={this.searchAction.bind(this)}/>
+        <SearchBox searchAction={this.searchAction.bind(this)} tagAction={this.tagAction.bind(this)}/>
 
         <FilterArea toggleSortType={this.toggleSortType.bind(this)}
                     toggleDirection={this.toggleDirection.bind(this)}

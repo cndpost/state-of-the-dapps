@@ -1,10 +1,11 @@
 import React from 'react';
 import IconButtons from '../containers/icon_buttions';
 import Select2 from 'react-select2-wrapper';
-
+import {_} from 'meteor/underscore';
 class SearchBox extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   componentDidMount() {
@@ -23,6 +24,16 @@ class SearchBox extends React.Component {
     searchAction(searchBox.value);
   }
 
+  tagChange() {
+    let {tagAction} = this.props;
+    let values = [];
+    let selectedValues = $('.select2-selection__choice');
+    _.each(selectedValues, (item) => {
+      values.push($(item).attr('title'));
+    });
+    tagAction(values);
+  }
+
   render() {
     return (
       <section className="bg-white">
@@ -35,12 +46,15 @@ class SearchBox extends React.Component {
               <label onClick={this.searchButtonPress.bind(this)}>Search</label>
               <Select2
                 multiple
-                data={[ 'bug', 'feature', 'documents', 'discussion' ]}
+                data={['bug', 'feature', 'documents', 'discussion']}
                 options={
                   {
-                    placeholder: 'search by tags',
+                    placeholder: 'search by tags'
                   }
                 }
+                ref='selectedTags'
+                onChange={this.tagChange.bind(this)}
+
               />
 
             </div>

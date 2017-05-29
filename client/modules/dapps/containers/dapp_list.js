@@ -9,7 +9,6 @@ export const composer = ({context, sortDirection, searchText, sortType, tags}, o
     Meteor.subscribe('dapps.list').ready()
   ];
   const dataReady = () => {
-    console.log(tags);
     let sorter = (sortDirection == 'desc') ? -1 : 1;
     let sortField = (sortType == 'status') ? 'status' : 'last_update';
     let featuredDapps = (searchText) ? [] : Collections.Dapps.find({tags: {$in: ['featured']}}).fetch();
@@ -23,10 +22,8 @@ export const composer = ({context, sortDirection, searchText, sortType, tags}, o
       ]
     } : {status: {$nin: defaultHideStates}, tags: {$nin: ['featured']}};
     if (!_.isEmpty(tags)) {
-      console.log('not empty');
       _.extend(selector, {tags: {$in: tags}});
     }
-    console.log(selector);
     const dapps = Collections.Dapps.find(selector, {sort: {[sortField]: sorter}}).fetch();
     onData(null, {dapps, featuredDapps});
   };
