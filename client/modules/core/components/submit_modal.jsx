@@ -11,7 +11,6 @@ class SubmitModal extends React.Component {
 
   pressOptIn() {
     const {optIn} = this.state;
-    console.log(optIn);
     event.preventDefault();
     this.setState({optIn: !optIn});
   }
@@ -28,7 +27,6 @@ class SubmitModal extends React.Component {
       return dataObj;
     };
     let res = create(this.refs.antiSpam.value, getFormData(), $thisForm);
-    console.log(res);
 
   }
 
