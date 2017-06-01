@@ -19,7 +19,6 @@ class DappLayout extends React.Component {
     this.debounceSearchAction = _.debounce(function (searchText) {
       this.setState({searchText});
       if (searchText.length >= 3) {
-        // console.log('searchAction', searchText);
         analytics.track('searchAction', {
           searchText
         });

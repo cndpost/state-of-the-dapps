@@ -29,7 +29,6 @@ export const composer = ({context, sortDirection, searchText, sortType, tags}, o
         _.extend(selector, {tags: {$nin: ['featured']}})
       }
     }
-    console.log(tags, selector);
     const dapps = Collections.Dapps.find(selector, {sort: {[sortField]: sorter}}).fetch();
     onData(null, {dapps, featuredDapps});
   };
