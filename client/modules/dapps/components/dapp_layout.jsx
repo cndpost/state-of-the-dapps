@@ -48,11 +48,7 @@ class DappLayout extends React.Component {
   }
 
   tagAction(tags) {
-    if (!_.isEmpty(tags)) {
-      this.setState({tags});
-
-    }
-    console.log(tags);
+    (!_.isEmpty(tags)) ? this.setState({tags}) : this.setState({tags: []});
   }
 
   render() {
@@ -60,7 +56,8 @@ class DappLayout extends React.Component {
     return (
       <div className='row'>
 
-        <SearchBox searchAction={this.searchAction.bind(this)} selectedTags={tags} tagAction={this.tagAction.bind(this)}/>
+        <SearchBox searchAction={this.searchAction.bind(this)} selectedTags={tags}
+                   tagAction={this.tagAction.bind(this)}/>
 
         <FilterArea toggleSortType={this.toggleSortType.bind(this)}
                     toggleDirection={this.toggleDirection.bind(this)}
