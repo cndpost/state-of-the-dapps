@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDatalist from 'react-datalist';
 
 class SubmitModal extends React.Component {
   constructor(props) {
@@ -86,8 +85,7 @@ class SubmitModal extends React.Component {
             <div className='row slim-row'>
               <div className='input-field col s12 m6'>
                 <label>Software License *</label>
-                <ReactDatalist list="license" name="license" options={licenses}/>
-
+                <input name='license' type='text' required maxLength='10'/>
 
               </div>
             </div>
