@@ -3,9 +3,8 @@ import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
 import SearchBox from '../components/search_box.jsx';
 
 export const composer = ({context, get}, onData) => {
-  const {Meteor, Collections, LocalState} = context();
+  const {LocalState} = context();
   get();
-  console.log(LocalState.get('tags'));
   let tags = LocalState.get('tags');
   onData(null, {tags});
 };
