@@ -1,9 +1,20 @@
-import React from "react";
+import React from 'react';
+import ReactDatalist from 'react-datalist';
 
 class SubmitModal extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      optIn: false
+    };
   }
+
+  pressOptIn() {
+    const {optIn} = this.state;
+    event.preventDefault();
+    this.setState({optIn: !optIn});
+  }
+
 
   submitQueue() {
     const {create} = this.props;
@@ -16,11 +27,12 @@ class SubmitModal extends React.Component {
       return dataObj;
     };
     let res = create(this.refs.antiSpam.value, getFormData(), $thisForm);
-    console.log(res);
 
   }
 
   render() {
+    const {optIn} = this.state;
+    const licenses = ['Apache', 'LGPL', 'GPL', 'proprietary', 'MIT', 'LGPL', 'Opensource', 'GPLv3', 'CC0', 'CC BY-SA', 'CC BY-NC-S'];
     return (
       <div id='submitModal' className='modal'>
         <div className='modal-content'>
@@ -73,8 +85,10 @@ class SubmitModal extends React.Component {
             </div>
             <div className='row slim-row'>
               <div className='input-field col s12 m6'>
-                <input name='license' type='text' required maxLength='10'/>
                 <label>Software License *</label>
+                <ReactDatalist list="license" name="license" options={licenses}/>
+
+
               </div>
             </div>
             <div className='row slim-row'>
@@ -106,6 +120,13 @@ class SubmitModal extends React.Component {
                   <option value='7. Working Prototype'>Working Prototype</option>
                   <option value='8. Live'>Live</option>
                 </select>
+              </div>
+              <div className='input-field col s12 m6'>
+                <input className="filled-in" type="checkbox" id="test5" name="opt_in" checked={optIn}
+                       onChange={this.pressOptIn.bind(this)}
+                />
+                <label htmlFor="test5"> It's ok to send me (very occasional) email about the State of the Dapps
+                  service.</label>
               </div>
               <div className='input-field col s12 m6'>
                 <input ref='antiSpam' className='anti-spam validate' required type='text' maxLength='3'/>

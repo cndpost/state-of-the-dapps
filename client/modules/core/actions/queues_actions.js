@@ -9,7 +9,6 @@ export default {
       );
     } else if (queue) {
       let errors = [];
-      (console.log(queue));
       if (!queue.dapp_name) {
         errors.push('Dapp Name');
       }

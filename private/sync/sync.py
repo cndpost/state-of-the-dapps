@@ -2,12 +2,14 @@
 
 import argparse
 import codecs
-import gspread
 import json
-from oauth2client.client import GoogleCredentials
 import os
-from pymongo import MongoClient
 import re
+from collections import Counter
+
+import gspread
+from oauth2client.client import GoogleCredentials
+from pymongo import MongoClient
 from slugify import slugify
 import dateutil.parser
 
@@ -19,12 +21,18 @@ def sync_sheet(worksheet, db):
     print list_of_lists
     row_nr = 0
 
+    tags_cnt = Counter()
+
     for cell_list in list_of_lists:
         print(cell_list)
 
         if row_nr > 0:
             name, description, url, github, reddit, slack, gitter, blog, wiki, the_etherian, twitter, facebook, contact, tags, license, platform, status, created, last_update, contract_address_mainnet, contract_address_ropsten, logo = cell_list
-            tags = [tag.strip() for tag in tags.split(',')]
+            tags = [tag.strip().lower() for tag in tags.split(',')]
+
+            for tag in tags:
+                if tag:
+                    tags_cnt[tag] += 1
 
             attributes = {
                 'row_nr': row_nr,
@@ -58,6 +66,10 @@ def sync_sheet(worksheet, db):
             db.dapps.update({'name': name}, {'$set': attributes}, upsert=True)
 
         row_nr += 1
+
+    # TODO remove unused tags
+    for tag, freq in tags_cnt.items():
+        db.tags.update({'tag': tag}, {'$set': {'freq': freq}}, upsert=True)
 
 def import_json(filename):
     data = []
