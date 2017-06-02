@@ -4,6 +4,8 @@ export default {
     Meteor.call('tags.getAll', (err, res) => {
       if (res) {
         LocalState.set('tags', _.pluck(res, 'tag'));
+      }else{
+        LocalState.set('tags',[]);
       }
     });
   }
