@@ -23,7 +23,7 @@ export const composer = ({context, sortDirection, searchText, sortType, tags}, o
       ]
     } : {status: {$nin: defaultHideStates}};
     if (!_.isEmpty(tags)) {
-      _.extend(selector, {tags: {$in: tags}});
+      _.extend(selector, {tags: {$all: tags}});
     } else {
       if (selector.status) {
         _.extend(selector, {tags: {$nin: ['featured']}})
