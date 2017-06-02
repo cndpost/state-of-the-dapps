@@ -7,7 +7,6 @@ export const composer = ({context}, onData) => {
   const subscriptionReady = [Meteor.subscribe('tags.list').ready()];
   const dataReady = () => {
     let tags = _.pluck(Collections.Tags.find().fetch(), 'tag');
-    console.log(tags);
     onData(null, {tags});
   };
   (subscriptionReady) ? dataReady() : onData();
