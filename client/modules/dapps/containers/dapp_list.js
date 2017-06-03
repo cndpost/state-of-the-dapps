@@ -14,6 +14,7 @@ export const composer = ({context, sortDirection, searchText, sortType, tags}, o
     let featuredDapps = (searchText) ? [] : Collections.Dapps.find({tags: {$in: ['featured']}}).fetch();
     let defaultHideStates = ['0. Unknown', '1. Abandoned', '2. On Hold', '3. Stealth Mode'];
 
+    
     const selector = (searchText) ? {
       $or: [
         {name: {$regex: searchText, $options: 'i'}},
