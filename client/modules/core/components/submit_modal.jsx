@@ -4,13 +4,13 @@ class SubmitModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      optIn: false
+      optIn: true
     };
   }
 
-  pressOptIn() {
+  pressOptIn(event) {
     const {optIn} = this.state;
-    event.preventDefault();
+    event.stopPropagation();
     this.setState({optIn: !optIn});
   }
 
