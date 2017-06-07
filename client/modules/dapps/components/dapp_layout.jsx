@@ -47,7 +47,14 @@ class DappLayout extends React.Component {
   }
 
   tagAction(tags) {
-    (!_.isEmpty(tags)) ? this.setState({tags}) : this.setState({tags: []});
+    if (!_.isEmpty(tags)) {
+      this.setState({tags});
+      analytics.track('searchAction', {
+        tags
+      });
+    } else {
+      this.setState({tags: []});
+    }
   }
 
   render() {
