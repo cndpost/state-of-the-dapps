@@ -18,9 +18,14 @@ class DappLayout extends React.Component {
   componentDidMount() {
     this.debounceSearchAction = _.debounce(function (searchText) {
       this.setState({searchText});
-      if (searchText.length >= 3) {
+
+      const hasAnalytics = (typeof analytics !== 'undefined');
+      const hasWeb3 = (typeof web3 !== 'undefined');
+
+      if (hasAnalytics && searchText.length >= 3) {
         analytics.track('searchAction', {
-          searchText
+          searchText,
+          hasWeb3
         });
       }
     }, 300);
@@ -29,17 +34,29 @@ class DappLayout extends React.Component {
   toggleSortType() {
     let sortType = (this.state.sortType === 'status') ? 'updated' : 'status';
     this.setState({sortType});
-    analytics.track('toggleSortType', {
-      sortType
-    });
+
+    const hasAnalytics = (typeof analytics !== 'undefined');
+    const hasWeb3 = (typeof web3 !== 'undefined');
+    if (hasAnalytics) {
+      analytics.track('toggleSortType', {
+        sortType,
+        hasWeb3
+      });
+    }
   }
 
   toggleDirection() {
     let sortDirection = (this.state.sortDirection === 'asc') ? 'desc' : 'asc';
     this.setState({sortDirection});
-    analytics.track('toggleDirection', {
-      sortDirection
-    });
+
+    const hasAnalytics = (typeof analytics !== 'undefined');
+    const hasWeb3 = (typeof web3 !== 'undefined');
+    if (hasAnalytics) {
+      analytics.track('toggleDirection', {
+        sortDirection,
+        hasWeb3
+      });
+    }
   }
 
   searchAction(searchText) {
@@ -49,9 +66,15 @@ class DappLayout extends React.Component {
   tagAction(tags) {
     if (!_.isEmpty(tags)) {
       this.setState({tags});
-      analytics.track('searchAction', {
-        tags
-      });
+
+      const hasAnalytics = (typeof analytics !== 'undefined');
+      const hasWeb3 = (typeof web3 !== 'undefined');
+      if (hasAnalytics) {
+        analytics.track('searchAction', {
+          tags,
+          hasWeb3
+        });
+      }
     } else {
       this.setState({tags: []});
     }

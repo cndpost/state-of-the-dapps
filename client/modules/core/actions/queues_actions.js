@@ -1,5 +1,7 @@
 export default {
   create({Meteor, LocalState}, antiSpam, queue, $thisForm) {
+    const hasAnalytics = (typeof analytics !== 'undefined');
+    const hasWeb3 = (typeof web3 !== 'undefined');
     LocalState.set('CREATE_QUEUE_ERROR', null);
     if (antiSpam !== '42') {
       swal(
@@ -37,11 +39,14 @@ export default {
           errors.toString(),
           'error'
         );
-        analytics.track('submitDapp', {
-          dapp_name: queue.dapp_name,
-          result: 'error',
-          error: errors.toString()
-        });
+        if (hasAnalytics) {
+          analytics.track('submitDapp', {
+            dapp_name: queue.dapp_name,
+            hasWeb3,
+            result: 'error',
+            error: errors.toString()
+          });
+        }
       } else {
         Meteor.call('queues.submit', queue, (err) => {
           if (err) {
@@ -50,11 +55,14 @@ export default {
               err,
               'error'
             );
-            analytics.track('submitDapp', {
-              dapp_name: queue.dapp_name,
-              result: 'error',
-              error: err
-            });
+            if (hasAnalytics) {
+              analytics.track('submitDapp', {
+                dapp_name: queue.dapp_name,
+                hasWeb3,
+                result: 'error',
+                error: err
+              });
+            }
           } else {
             $('#submitModal').modal('close');
             swal(
@@ -64,16 +72,18 @@ export default {
             );
             $thisForm[0].reset();
 
-            const hasWeb3 = (typeof web3 !== 'undefined');
-            analytics.identify(queue.contact_email, {
-              '$email': queue.contact_email,
-              '$name': queue.contact,
-              hasWeb3
-            });
-            analytics.track('submitDapp', {
-              dapp_name: queue.dapp_name,
-              result: 'success',
-            });
+            if (hasAnalytics) {
+              analytics.identify(queue.contact_email, {
+                '$email': queue.contact_email,
+                '$name': queue.contact,
+                hasWeb3
+              });
+              analytics.track('submitDapp', {
+                dapp_name: queue.dapp_name,
+                result: 'success',
+                hasWeb3
+              });
+            }
           }
         });
       }

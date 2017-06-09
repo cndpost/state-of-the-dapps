@@ -11,13 +11,16 @@ export default function (injectDeps, {FlowRouter}) {
       mount(MainLayoutCtx, {
         content: () => (<DappLayout />)
       });
-      // XXX workaround for https://github.com/okgrow/analytics/issues/58
-      Meteor.setTimeout(() => {
-        const hasWeb3 = (typeof web3 !== 'undefined');
-        analytics.page('home', {
-          hasWeb3
-        });
-      }, 500);
+      const hasAnalytics = (typeof analytics !== 'undefined');
+      if (hasAnalytics) {
+        // XXX workaround for https://github.com/okgrow/analytics/issues/58
+        Meteor.setTimeout(() => {
+          const hasWeb3 = (typeof web3 !== 'undefined');
+          analytics.page('home', {
+            hasWeb3
+          });
+        }, 500);
+      }
     }
   });
 }

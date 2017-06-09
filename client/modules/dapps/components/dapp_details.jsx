@@ -38,7 +38,7 @@ class DappDetails extends React.Component {
                         <div className="row">
                           <h5>
                             <a className="black-text" onClick={trackLink.bind(this)} href={dapp.url}
-                               data-type='site-title'
+                               data-dapp={dapp.slug} data-type='site-title'
                                target="_blank">{dapp.name}
                             </a>
                           </h5>
@@ -93,7 +93,8 @@ class DappDetails extends React.Component {
                             contract address
                           </div>
                           <div className="col s8 grey-text text-darken-4 left-align">
-                            <a target='_blank' onClick={trackLink.bind(this)} data-type='contract_address_mainnet'
+                            <a target='_blank' onClick={trackLink.bind(this)}
+                               data-dapp={dapp.slug} data-type='contract_address_mainnet'
                                href={'https://etherscan.io/address/' + dapp.contract_address_mainnet}>
                               {dapp.contract_address_mainnet}
                             </a>
@@ -106,7 +107,8 @@ class DappDetails extends React.Component {
                             contract address
                           </div>
                           <div className="col s10 grey-text text-darken-4 left-align">
-                            <a target='_blank' onClick={trackLink.bind(this)} data-type='contract_address_ropsten'
+                            <a target='_blank' onClick={trackLink.bind(this)}
+                               data-dapp={dapp.slug} data-type='contract_address_ropsten'
                                href={'https://ropsten.io/address/' + dapp.contract_address_ropsten}>
                               {dapp.contract_address_ropsten}
                             </a>
@@ -123,7 +125,8 @@ class DappDetails extends React.Component {
 
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align truncate">
                           { dapp.url ?
-                            <a href={dapp.url} onClick={trackLink.bind(this)} data-type='site' target="_blank">
+                            <a href={dapp.url} onClick={trackLink.bind(this)}
+                               data-dapp={dapp.slug} data-type='site' target="_blank">
                               <i className='icon-link fa fa-fw fa-globe'></i> Site
                             </a> :
                             <span><i className='icon-link fa fa-fw fa-globe'></i> No Site</span>
@@ -133,7 +136,8 @@ class DappDetails extends React.Component {
 
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
                           {dapp.github ?
-                            <a href={dapp.github} onClick={trackLink.bind(this)} data-type='github' target="_blank">
+                            <a href={dapp.github} onClick={trackLink.bind(this)}
+                               data-dapp={dapp.slug} data-type='github' target="_blank">
                               <i className='icon-link fa fa-fw fa-github'></i> Github
                             </a> :
                             <span><i className='icon-link fa fa-fw fa-github'></i> No Github</span>
@@ -143,7 +147,8 @@ class DappDetails extends React.Component {
 
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
                           {dapp.blog ?
-                            <a href={dapp.blog} onClick={trackLink.bind(this)} data-type='blog' target="_blank">
+                            <a href={dapp.blog} onClick={trackLink.bind(this)}
+                               data-dapp={dapp.slug} data-type='blog' target="_blank">
                               <i className='icon-link fa fa-fw fa-book'></i> Blog
                             </a> :
                             <span><i className='icon-link fa fa-fw fa-book'></i> No Blog</span>
@@ -153,7 +158,8 @@ class DappDetails extends React.Component {
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
                           {dapp.wiki ?
 
-                            <a href={dapp.wiki} onClick={trackLink.bind(this)} data-type='wiki' target="_blank">
+                            <a href={dapp.wiki} onClick={trackLink.bind(this)}
+                               data-dapp={dapp.slug} data-type='wiki' target="_blank">
                               <i className='icon-link fa fa-fw fa-wikipedia-w'></i> Wiki
                             </a> :
                             <span>
@@ -165,7 +171,8 @@ class DappDetails extends React.Component {
 
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
                           {dapp.slack ?
-                            <a href={dapp.slack} onClick={trackLink.bind(this)} data-type='slack' target="_blank">
+                            <a href={dapp.slack} onClick={trackLink.bind(this)}
+                               data-dapp={dapp.slug} data-type='slack' target="_blank">
                               <i className='icon-link fa fa-fw fa-slack'></i> Slack
                             </a>
                             :
@@ -178,7 +185,8 @@ class DappDetails extends React.Component {
 
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
                           {dapp.gitter ?
-                            <a href={dapp.gitter} onClick={trackLink.bind(this)} data-type='gitter' target="_blank">
+                            <a href={dapp.gitter} onClick={trackLink.bind(this)}
+                               data-dapp={dapp.slug} data-type='gitter' target="_blank">
                               <i className='icon-link fa fa-fw fa-comments'></i> Gitter
                             </a> :
                             <span><i className='icon-link fa fa-fw fa-comments'></i> No Gitter</span>
@@ -188,7 +196,8 @@ class DappDetails extends React.Component {
 
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align truncate">
                           { dapp.reddit ?
-                            <a href={dapp.reddit} onClick={trackLink.bind(this)} data-type='reddit' target="_blank">
+                            <a href={dapp.reddit} onClick={trackLink.bind(this)}
+                               data-dapp={dapp.slug} data-type='reddit' target="_blank">
                               <i className='icon-link fa fa-fw fa-reddit'></i> {formatHelper.getRedditUrl(dapp.reddit)}
                             </a> :
                             <span><i className='icon-link fa fa-fw fa-reddit'></i> No REDDIT</span>
@@ -198,8 +207,8 @@ class DappDetails extends React.Component {
 
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
                           {dapp.the_etherian ?
-
-                            <a href={dapp.the_etherian} onClick={trackLink.bind(this)} data-type='the_etherian'
+                            <a href={dapp.the_etherian} onClick={trackLink.bind(this)}
+                               data-dapp={dapp.slug} data-type='the_etherian'
                                target="_blank">
                               <i className='icon-link fa fa-fw fa-newspaper-o'></i> The Etherian
                             </a> :
@@ -211,7 +220,8 @@ class DappDetails extends React.Component {
 
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align truncate">
                           { dapp.twitter ?
-                            <a href={dapp.twitter} onClick={trackLink.bind(this)} data-type='twitter' target="_blank">
+                            <a href={dapp.twitter} onClick={trackLink.bind(this)}
+                               data-dapp={dapp.slug} data-type='twitter' target="_blank">
                               <i
                                 className='icon-link fa fa-fw fa-twitter'></i> {formatHelper.getTwitterHandle(dapp.twitter)}
                             </a> :
@@ -222,7 +232,8 @@ class DappDetails extends React.Component {
 
                         <div className="important-link col s6 m4 l4 grey-text text-darken-4 left-align">
                           { dapp.facebook ?
-                            <a href={dapp.facebook} onClick={trackLink.bind(this)} data-type='facebook' target="_blank">
+                            <a href={dapp.facebook} onClick={trackLink.bind(this)}
+                               data-dapp={dapp.slug} data-type='facebook' target="_blank">
                               <i className='icon-link fa fa-fw fa-facebook'></i> Facebook
                             </a> :
                             <span><i className='icon-link fa fa-fw fa-facebook'></i> No Facebook</span>
