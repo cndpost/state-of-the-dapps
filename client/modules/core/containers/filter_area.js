@@ -2,6 +2,7 @@ import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
 import FilterArea from '../components/filter_area.jsx';
 export const composer = ({context, count}, onData) => {
   const {LocalState} = context();
+  count();
   let dappCount = LocalState.get('dappCount');
   onData(null, {dappCount});
 };
