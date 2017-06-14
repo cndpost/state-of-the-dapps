@@ -84,9 +84,33 @@ class SubmitModal extends React.Component {
             </div>
             <div className='row slim-row'>
               <div className='input-field col s12 m6'>
+                <input name='twitter' type='url' pattern="https?://.+" maxLength='64'/>
+                <label>Twitter URL</label>
+              </div>
+              <div className='input-field col s12 m6'>
+                <input name='facebook' type='url' pattern="https?://.+" maxLength='64'/>
+                <label>Facebook URL</label>
+              </div>
+            </div>
+            <div className='row slim-row'>
+              <div className='input-field col s12 m6'>
+                <input name='twitter' type='url' pattern="https?://.+" maxLength='64'/>
+                <label>Wiki URL</label>
+              </div>
+              <div className='input-field col s12 m6'>
+                <input name='facebook' type='url' pattern="https?://.+" maxLength='64'/>
+                <label>Blog URL</label>
+              </div>
+            </div>
+            <div className='row slim-row'>
+              <div className='input-field col s12 m6'>
                 <label>Software License *</label>
                 <input name='license' type='text' required maxLength='10'/>
 
+              </div>
+              <div className='input-field col s12 m6'>
+                <input name='the_etherian' type='url' pattern="https?://.+" maxLength='64'/>
+                <label>Blog URL</label>
               </div>
             </div>
             <div className='row slim-row'>
