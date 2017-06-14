@@ -94,11 +94,11 @@ class SubmitModal extends React.Component {
             </div>
             <div className='row slim-row'>
               <div className='input-field col s12 m6'>
-                <input name='twitter' type='url' pattern="https?://.+" maxLength='64'/>
+                <input name='wiki' type='url' pattern="https?://.+" maxLength='64'/>
                 <label>Wiki URL</label>
               </div>
               <div className='input-field col s12 m6'>
-                <input name='facebook' type='url' pattern="https?://.+" maxLength='64'/>
+                <input name='blog' type='url' pattern="https?://.+" maxLength='64'/>
                 <label>Blog URL</label>
               </div>
             </div>
@@ -110,7 +110,7 @@ class SubmitModal extends React.Component {
               </div>
               <div className='input-field col s12 m6'>
                 <input name='the_etherian' type='url' pattern="https?://.+" maxLength='64'/>
-                <label>Blog URL</label>
+                <label>The Etherian URL</label>
               </div>
             </div>
             <div className='row slim-row'>

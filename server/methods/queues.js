@@ -23,6 +23,12 @@ export default function () {
         license: ShortString,
         tags: ShortString,
         status: ShortString,
+        facebook: Match.Maybe(ShortString),
+        twitter: Match.Maybe(ShortString),
+        gitter: Match.Maybe(ShortString),
+        blog: Match.Maybe(ShortString),
+        wiki: Match.Maybe(ShortString),
+        the_etherian: Match.Maybe(ShortString),
         contract_address_mainnet: Match.Maybe(ShortString),
         contract_address_ropsten: Match.Maybe(ShortString),
         opt_in: Match.Maybe(ShortString)
