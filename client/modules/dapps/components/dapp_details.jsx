@@ -11,6 +11,7 @@ class DappDetails extends React.Component {
 
   render() {
     const {dapp, trackLink} = this.props;
+
     return (
       <div id="details-page" className="section">
         {(dapp) ?
@@ -23,21 +24,22 @@ class DappDetails extends React.Component {
                       <div className="card-details-title">
 
                         <div className="col s4">
-                          <span className="black-text">Details</span>
+                          <span className={dappHelper.getStatusColor(dapp.status)}>Details</span>
                         </div>
                         <div className="col s4"></div>
                         <div className="col s4">
-                          <span className="black-text status-text">
+                          <span
+                            className={`${dappHelper.getStatusColor(dapp.status)} status-text`}>
                             {dappHelper.getStatusText(dapp.status)}
                           </span>
                         </div>
                       </div>
 
                       <div id="dapp-details-name-text"
-                           className="black-text">
+                           className={dappHelper.getStatusColor(dapp.status)}>
                         <div className="row">
                           <h5>
-                            <a className="black-text" onClick={trackLink.bind(this)} href={dapp.url}
+                            <a className={dappHelper.getStatusColor(dapp.status)} onClick={trackLink.bind(this)} href={dapp.url}
                                data-dapp={dapp.slug} data-type='site-title'
                                target="_blank">{dapp.name}
                             </a>
