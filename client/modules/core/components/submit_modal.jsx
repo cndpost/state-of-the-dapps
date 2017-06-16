@@ -55,7 +55,7 @@ class SubmitModal extends React.Component {
             <div className='row slim-row'>
               <div className='input-field col s12 m6'>
                 <input className='validate' name='contact' type='text' required maxLength='32'/>
-                <label>Organisation / Contact Name *</label>
+                <label>Founder(s) *</label>
               </div>
               <div className='input-field col s12 m6'>
                 <input className='validate' name='contact_email' type='email' required maxLength='32'/>
