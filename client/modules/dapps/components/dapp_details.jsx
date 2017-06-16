@@ -39,7 +39,7 @@ class DappDetails extends React.Component {
                            className={dappHelper.getStatusColor(dapp.status)}>
                         <div className="row">
                           <h5>
-                            <a className={dappHelper.getStatusColor(dapp.status)} onClick={trackLink.bind(this)} href={dapp.url}
+                            <a className={`${dappHelper.getStatusColor(dapp.status)} dapp-link`} onClick={trackLink.bind(this)} href={dapp.url}
                                data-dapp={dapp.slug} data-type='site-title'
                                target="_blank">{dapp.name}
                             </a>
