@@ -58,7 +58,7 @@ class DappDetails extends React.Component {
                       <ul id="overview-collection" className="collection z-depth-1">
                         {dapp.contact &&
                         <li className="collection-item">
-                          <div className="col s4 grey-text darken-1">Contact</div>
+                          <div className="col s4 grey-text darken-1">Founder(s)</div>
                           <div className="col s8 grey-text text-darken-4 left-align">{dapp.contact}</div>
                         </li>
                         }

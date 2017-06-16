@@ -21,7 +21,7 @@ export default {
         errors.push('Description');
       }
       if (!queue.contact) {
-        errors.push('Contact');
+        errors.push('Founder(s)');
       }
       if (!queue.contact_email) {
         errors.push('Email');
@@ -31,7 +31,7 @@ export default {
         errors.push('Site URL');
       }
       if (!queue.license) {
-        errors.push('License');
+        errors.push('Software License');
       }
       if (!errors.length == 0) {
         swal(
