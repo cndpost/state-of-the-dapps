@@ -58,6 +58,12 @@ class DappDetails extends React.Component {
                       </div>
 
                       <ul id="overview-collection" className="collection z-depth-1">
+                        {dapp.tags &&
+                        <li className="collection-item">
+                          <div className="col s4 grey-text darken-1">Tags</div>
+                          <div className="col s8 grey-text text-darken-4 left-align">{dapp.tags.join(', ')}</div>
+                        </li>
+                        }
                         {dapp.contact &&
                         <li className="collection-item">
                           <div className="col s4 grey-text darken-1">Founder(s)</div>
