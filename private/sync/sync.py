@@ -68,7 +68,14 @@ def sync_sheet(worksheet, db):
             if 'featured' in tags:
                 attributes['featured'] = True
 
-            db.dapps.update({'name': name}, {'$set': attributes}, upsert=True)
+            # remove attributes with empty strings
+            empty_attributes = {}
+            for key, value in attributes.items():
+                if value == '':
+                    empty_attributes[key] = True
+                    del attributes[key]
+
+            db.dapps.update({'name': name}, {'$set': attributes, '$unset': empty_attributes}, upsert=True)
 
         row_nr += 1
 
