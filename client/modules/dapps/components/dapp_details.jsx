@@ -11,6 +11,7 @@ class DappDetails extends React.Component {
 
   render() {
     const {dapp, trackLink} = this.props;
+
     return (
       <div id="details-page" className="section">
         {(dapp) ?
@@ -23,21 +24,22 @@ class DappDetails extends React.Component {
                       <div className="card-details-title">
 
                         <div className="col s4">
-                          <span className="black-text">Details</span>
+                          <span className={dappHelper.getStatusColor(dapp.status)}>Details</span>
                         </div>
                         <div className="col s4"></div>
                         <div className="col s4">
-                          <span className="black-text status-text">
+                          <span
+                            className={`${dappHelper.getStatusColor(dapp.status)} status-text`}>
                             {dappHelper.getStatusText(dapp.status)}
                           </span>
                         </div>
                       </div>
 
                       <div id="dapp-details-name-text"
-                           className="black-text">
+                           className={dappHelper.getStatusColor(dapp.status)}>
                         <div className="row">
                           <h5>
-                            <a className="black-text" onClick={trackLink.bind(this)} href={dapp.url}
+                            <a className={`${dappHelper.getStatusColor(dapp.status)} dapp-link`} onClick={trackLink.bind(this)} href={dapp.url}
                                data-dapp={dapp.slug} data-type='site-title'
                                target="_blank">{dapp.name}
                             </a>
@@ -56,9 +58,15 @@ class DappDetails extends React.Component {
                       </div>
 
                       <ul id="overview-collection" className="collection z-depth-1">
+                        {dapp.tags &&
+                        <li className="collection-item">
+                          <div className="col s4 grey-text darken-1">Tags</div>
+                          <div className="col s8 grey-text text-darken-4 left-align">{dapp.tags.join(', ')}</div>
+                        </li>
+                        }
                         {dapp.contact &&
                         <li className="collection-item">
-                          <div className="col s4 grey-text darken-1">Contact</div>
+                          <div className="col s4 grey-text darken-1">Founder(s)</div>
                           <div className="col s8 grey-text text-darken-4 left-align">{dapp.contact}</div>
                         </li>
                         }

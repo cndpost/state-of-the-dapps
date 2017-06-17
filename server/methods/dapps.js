@@ -9,7 +9,8 @@ export default function () {
     },
     'dapps.related'(tags){
       const selector = (tags) ? {tags: {$in: tags}} : {_id: 'cant-be-found'};
-      return Dapps.find(selector).fetch();
+      const ignoredFields = {last_synced: 0};
+      return Dapps.find(selector, ignoredFields).fetch();
     }
   });
 }

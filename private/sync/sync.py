@@ -6,6 +6,7 @@ import json
 import os
 import re
 from collections import Counter
+from datetime import datetime
 
 import gspread
 from oauth2client.client import GoogleCredentials
@@ -17,12 +18,15 @@ DAPPS_SHEET_KEY = '1VdRMFENPzjL2V-vZhcc_aa5-ysf243t5vXlxC2b054g'
 MONGODB_URL = os.getenv('MONGODB_URL', 'mongodb://127.0.0.1:3001/meteor')
 
 def sync_sheet(worksheet, db):
+    last_sync = datetime.utcnow()
+
     list_of_lists = worksheet.get_all_values()
     print list_of_lists
     row_nr = 0
 
     tags_cnt = Counter()
 
+    print "Syncing dapps..."
     for cell_list in list_of_lists:
         print(cell_list)
 
@@ -55,6 +59,7 @@ def sync_sheet(worksheet, db):
                 'status': status,
                 'created': created,
                 'last_update': last_update,
+                'last_sync': last_sync,
                 'contract_address_mainnet': contract_address_mainnet,
                 'contract_address_ropsten': contract_address_ropsten,
                 'logo': logo,
@@ -63,13 +68,27 @@ def sync_sheet(worksheet, db):
             if 'featured' in tags:
                 attributes['featured'] = True
 
-            db.dapps.update({'name': name}, {'$set': attributes}, upsert=True)
+            # remove attributes with empty strings
+            empty_attributes = {}
+            for key, value in attributes.items():
+                if value == '':
+                    empty_attributes[key] = True
+                    del attributes[key]
+
+            db.dapps.update({'name': name}, {'$set': attributes, '$unset': empty_attributes}, upsert=True)
 
         row_nr += 1
 
-    # TODO remove unused tags
+    print "Syncing tags..."
     for tag, freq in tags_cnt.items():
-        db.tags.update({'tag': tag}, {'$set': {'freq': freq}}, upsert=True)
+        db.tags.update({'tag': tag}, {'$set': {'freq': freq, 'last_sync': last_sync}}, upsert=True)
+
+    # remove old / unused
+    print "Removing old dapps..."
+    print db.dapps.delete_many({'last_sync': {'$ne': last_sync}}).deleted_count
+    print "Removing old tags..."
+    print db.tags.delete_many({'last_sync': {'$ne': last_sync}}).deleted_count
+
 
 def import_json(filename):
     data = []
