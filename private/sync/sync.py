@@ -78,9 +78,9 @@ def sync_sheet(worksheet, db):
 
     # remove old / unused
     print "Removing old dapps..."
-    print db.dapps.delete_many({'last_sync': {'$ne': last_sync}})
+    print db.dapps.delete_many({'last_sync': {'$ne': last_sync}}).deleted_count
     print "Removing old tags..."
-    print db.tags.delete_many({'last_sync': {'$ne': last_sync}})
+    print db.tags.delete_many({'last_sync': {'$ne': last_sync}}).deleted_count
 
 
 def import_json(filename):
