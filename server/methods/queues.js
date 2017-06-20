@@ -10,6 +10,11 @@ export default function () {
         check(x, String);
         return x.length <= 128;
       });
+
+      const LongString = Match.Where((string)=>{
+        check(string,String);
+        return string.length < 500;
+      });
       console.log(data);
       check(data, {
         dapp_name: ShortString,
@@ -23,6 +28,12 @@ export default function () {
         license: ShortString,
         tags: ShortString,
         status: ShortString,
+        facebook: Match.Maybe(ShortString),
+        twitter: Match.Maybe(ShortString),
+        gitter: Match.Maybe(ShortString),
+        blog: Match.Maybe(LongString),
+        wiki: Match.Maybe(LongString),
+        the_etherian: Match.Maybe(ShortString),
         contract_address_mainnet: Match.Maybe(ShortString),
         contract_address_ropsten: Match.Maybe(ShortString),
         opt_in: Match.Maybe(ShortString)

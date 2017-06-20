@@ -64,7 +64,7 @@ class SubmitModal extends React.Component {
             </div>
             <div className='row slim-row'>
               <div className='input-field col s12 m6'>
-                <input name='site' type='url' pattern="https?://.+" required maxLength='64'/>
+                <input name='site' type='url' pattern="https?://.+" required maxLength='128'/>
                 <label>Site URL *</label>
               </div>
               <div className='input-field col s12 m6'>
@@ -74,19 +74,43 @@ class SubmitModal extends React.Component {
             </div>
             <div className='row slim-row'>
               <div className='input-field col s12 m6'>
-                <input name='github' type='url' pattern="https?://.+" maxLength='64'/>
+                <input name='github' type='url' pattern="https?://.+" maxLength='128'/>
                 <label>GitHub URL</label>
               </div>
               <div className='input-field col s12 m6'>
-                <input name='slack' type='url' pattern="https?://.+" maxLength='64'/>
+                <input name='slack' type='url' pattern="https?://.+" maxLength='128'/>
                 <label>Slack URL</label>
               </div>
             </div>
             <div className='row slim-row'>
               <div className='input-field col s12 m6'>
+                <input name='twitter' type='url' pattern="https?://.+" maxLength='64'/>
+                <label>Twitter URL</label>
+              </div>
+              <div className='input-field col s12 m6'>
+                <input name='facebook' type='url' pattern="https?://.+" maxLength='128'/>
+                <label>Facebook URL</label>
+              </div>
+            </div>
+            <div className='row slim-row'>
+              <div className='input-field col s12 m6'>
+                <input name='wiki' type='url' pattern="https?://.+" maxLength='128'/>
+                <label>Wiki URL</label>
+              </div>
+              <div className='input-field col s12 m6'>
+                <input name='blog' type='url' pattern="https?://.+" maxLength='128'/>
+                <label>Blog URL</label>
+              </div>
+            </div>
+            <div className='row slim-row'>
+              <div className='input-field col s12 m6'>
                 <label>Software License *</label>
-                <input name='license' type='text' required maxLength='10'/>
+                <input name='license' type='text' required maxLength='16'/>
 
+              </div>
+              <div className='input-field col s12 m6'>
+                <input name='the_etherian' type='url' pattern="https?://.+" maxLength='128'/>
+                <label>The Etherian URL</label>
               </div>
             </div>
             <div className='row slim-row'>
