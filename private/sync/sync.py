@@ -100,7 +100,8 @@ def import_json(filename):
 def import_queue(db):
     return list(db.queue.find())
 
-def update_sheet(worksheet, db, data):
+def update_sheet(worksheet, db, data, prune=False):
+    imported_ids = []
     for row in data:
         dapp_name = row['dapp_name']
         dt = dateutil.parser.parse(row['timestamp'])
@@ -136,13 +137,23 @@ def update_sheet(worksheet, db, data):
                 row['contract_address_ropsten'],
             ]
             worksheet.append_row(output)
+            imported_ids.append(row['_id'])
 
+
+    if prune:
+        print "Pruning queue after import, count=", len(imported_ids)
+        for queue_id in imported_ids:
+            deletion_result = db.queue.delete_one({'_id': queue_id})
+            print "removing queue_id", queue_id, ' deleted=', deletion_result.deleted_count
+    else:
+        print "Pruning disabled"
 
 def parse_cli_args():
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('--import', action='store_true', dest='import_queue', help='import submission queue to worksheet')
     group.add_argument('--sync', action='store_true', help='sync worksheet to database')
+    parser.add_argument('--prune', action='store_true', help='prune queue after import')
     return parser.parse_args()
 
 def main():
@@ -164,7 +175,7 @@ def main():
     if args.import_queue:
         print "import queue"
         data = import_queue(db)
-        update_sheet(worksheet, db, data)
+        update_sheet(worksheet, db, data, args.prune)
 
     if args.sync:
         print "sync"
