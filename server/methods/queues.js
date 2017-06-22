@@ -45,7 +45,7 @@ export default function () {
         from: process.env.MAIL_FROM,
         replyTo: data.contact_email,
         subject: `New Dapp Submitted - ${data.dapp_name}`,
-        text: `#group Support\n#assignee\n#requester ${data.contact_email}\n#tags dapp-submission\nDapp needs to be approved and reviewed manually:\n\n ${EJSON.stringify(data, null, 2)}`
+        text: `#group Support\n#assignee\n#requester ${data.contact_email}\n#tags dapp-submission\n\nDapp needs to be approved and reviewed manually:\n\n ${EJSON.stringify(data, null, 2)}`
       });
       return true;
     }
