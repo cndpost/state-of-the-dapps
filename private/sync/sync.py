@@ -15,7 +15,14 @@ from slugify import slugify
 import dateutil.parser
 
 DAPPS_SHEET_KEY = '1VdRMFENPzjL2V-vZhcc_aa5-ysf243t5vXlxC2b054g'
-MONGODB_URL = os.getenv('MONGODB_URL', 'mongodb://127.0.0.1:3001/meteor')
+MONGODB_URL = os.getenv('MONGODB_URL', 'mongodb://127.0.0.1:27017/sotd')
+
+# from contentful_management import Client
+# import contentful_management
+# import logging
+# logging.basicConfig(level=logging.DEBUG)
+#
+# content_client = Client('CFPAT-56fddfa5b06ea2e4f41ccac0f452add4ce3fc0400480e1595f6224ed9ba9921d', raise_errors=False, raw_mode=True)
 
 def sync_sheet(worksheet, db):
     last_sync = datetime.utcnow()
@@ -38,6 +45,8 @@ def sync_sheet(worksheet, db):
                 if tag:
                     tags_cnt[tag] += 1
 
+            slug = slugify(name)
+
             attributes = {
                 'row_nr': row_nr,
                 'description': description,
@@ -55,7 +64,7 @@ def sync_sheet(worksheet, db):
                 'tags': tags,
                 'license': license,
                 'platform': platform,
-                'slug': slugify(name),
+                'slug': slug,
                 'status': status,
                 'created': created,
                 'last_update': last_update,
@@ -68,14 +77,40 @@ def sync_sheet(worksheet, db):
             if 'featured' in tags:
                 attributes['featured'] = True
 
+
+            content_fields = {}
+
             # remove attributes with empty strings
             empty_attributes = {}
             for key, value in attributes.items():
                 if value == '':
                     empty_attributes[key] = True
                     del attributes[key]
+                else:
+                    if isinstance(value, datetime):
+                        content_fields[key] = {'en-US': value.isoformat()}
+                    else:
+                        content_fields[key] = {'en-US': value}
 
             db.dapps.update({'name': name}, {'$set': attributes, '$unset': empty_attributes}, upsert=True)
+
+            # from pprint import pprint
+            # content_fields['name'] = {'en-US': name}
+
+            # entry_id = slug
+
+            # response = content_client.entries('d18en2dcbexs').create(entry_id, {
+            #     'content_type_id': 'dapp',
+            #     'fields': content_fields
+            # })
+
+            # response_json = response.json()
+            # if response_json['sys']['type'] == 'Error':
+            #     pprint(content_fields)
+            #     print "Error"
+            #     pprint(response_json)
+            #     if response_json['sys']['id'] != 'VersionMismatch':
+            #         return
 
         row_nr += 1
 
@@ -154,6 +189,7 @@ def parse_cli_args():
     group.add_argument('--import', action='store_true', dest='import_queue', help='import submission queue to worksheet')
     group.add_argument('--sync', action='store_true', help='sync worksheet to database')
     parser.add_argument('--prune', action='store_true', help='prune queue after import')
+    group.add_argument('--contentful', action='store_true', help='sync worksheet to contentful')
     return parser.parse_args()
 
 def main():
@@ -180,6 +216,12 @@ def main():
     if args.sync:
         print "sync"
         sync_sheet(worksheet, db)
+
+    if args.contentful:
+        entries = content_client.entries('d18en2dcbexs').all()
+        for entry in entries:
+            print entry
+            entry.delete()
 
 if __name__ == '__main__':
     main()
