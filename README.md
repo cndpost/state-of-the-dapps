@@ -4,17 +4,17 @@ Lists of all Ethereum DApps known to mankind. Watch our presentation https://you
 
 Authorative source: https://docs.google.com/spreadsheets/d/1VdRMFENPzjL2V-vZhcc_aa5-ysf243t5vXlxC2b054g/edit?usp=sharing
 
-This is a service provided by [EtherCasts](http://ethercasts.com)
+This is a service provided by [Moby Corp](http://www.moby-corp.com)
 
 ## API
 
 We have the following REST / JSON endpoints:
 
 ```
-http://dapps.ethercasts.com/api/dapps
-http://dapps.ethercasts.com/api/dapps-by-tag/<tag>
+http://dapps.moby-corp.com/api/dapps
+http://dapps.moby-corp.com/api/dapps-by-tag/<tag>
 ```
-For status.im I would suggest to add the `status-im` tag to all dapps that support status.im, and then call http://dapps.ethercasts.com/api/dapps-by-tag/status-im to fetch those.
+For status.im I would suggest to add the `status-im` tag to all dapps that support status.im, and then call http://dapps.moby-corp.com/api/dapps-by-tag/status-im to fetch those.
 
 ## Development
 

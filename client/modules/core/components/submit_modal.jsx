@@ -38,7 +38,7 @@ class SubmitModal extends React.Component {
           <div className='row slim-row center-align'>
             <h4>Submit a Dapp</h4>
             <p>
-              Complete the form below or email <a href='mailto:dapps@ethercasts.com' target='_blank'>dapps@ethercasts.com</a>
+              Complete the form below or email <a href='mailto:wrkallman@gmail.com' target='_blank'>wrkallman@gmail.com</a>
             </p>
           </div>
           <form ref='submissionForm'>

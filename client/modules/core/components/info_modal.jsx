@@ -21,9 +21,9 @@ class InfoModal extends React.Component {
             <div className='row center-align'>
               <h3>A Curated Collection of Decentralized Apps</h3>
               <p>
-                List maintained by <a href='http://ethercasts.com/' target='_blank'>EtherCasts</a>, connect with us via Twitter <a
-                href='https://twitter.com/ethercasts' target='_blank'>@EtherCasts</a>.
-                Development by <a href="https://github.com/evilboss" target='_blank'>Jr Reyes</a>
+                List maintained by <a href='http://www.moby-corp.com/' target='_blank'>Moby Corp</a>, connect with us via email <a
+                href='https://twitter.com/mobycorp' target='_blank'>@mobycorp</a>.
+                Development by <a href="https://github.com/cndpost" target='_blank'>John Xu</a>
 
               </p>
             </div>
